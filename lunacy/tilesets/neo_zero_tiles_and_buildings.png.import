@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh86g3il7o7y8"
-path="res://.godot/imported/neo_zero_tiles_and_buildings_01.png-016846da1fc3818511e90d9b40215885.ctex"
+uid="uid://bwn34g86fxjqi"
+path="res://.godot/imported/neo_zero_tiles_and_buildings.png-25378d6aac9b15de28ae88ba8151cfca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/neo_zero_tiles_and_buildings_01.png"
-dest_files=["res://.godot/imported/neo_zero_tiles_and_buildings_01.png-016846da1fc3818511e90d9b40215885.ctex"]
+source_file="res://tilesets/neo_zero_tiles_and_buildings.png"
+dest_files=["res://.godot/imported/neo_zero_tiles_and_buildings.png-25378d6aac9b15de28ae88ba8151cfca.ctex"]
 
 [params]
 
