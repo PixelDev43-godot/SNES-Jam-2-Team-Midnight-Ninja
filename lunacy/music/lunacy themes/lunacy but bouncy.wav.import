@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://doidh8htfee7t"
+path="res://.godot/imported/lunacy but bouncy.wav-47c660aeac9cea5425ae29afe991653b.sample"
+
+[deps]
+
+source_file="res://music/lunacy themes/lunacy but bouncy.wav"
+dest_files=["res://.godot/imported/lunacy but bouncy.wav-47c660aeac9cea5425ae29afe991653b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
