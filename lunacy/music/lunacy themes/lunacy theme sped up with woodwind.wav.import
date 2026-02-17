@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://fy3ppe3j2w8b"
+path="res://.godot/imported/lunacy theme sped up with woodwind.wav-7f5f3c85532eaf779e4b1a03dcfb0d96.sample"
+
+[deps]
+
+source_file="res://music/lunacy themes/lunacy theme sped up with woodwind.wav"
+dest_files=["res://.godot/imported/lunacy theme sped up with woodwind.wav-7f5f3c85532eaf779e4b1a03dcfb0d96.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
