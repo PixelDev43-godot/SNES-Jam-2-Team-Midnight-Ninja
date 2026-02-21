@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://drbku36yechos"]
+
+[ext_resource type="Script" path="res://TNCs and GDs/only_until_you_add_yours.gd" id="1_5b0j7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eton3"]
+size = Vector2(9.5, 9.5)
+
+[node name="only until you add yours" type="CharacterBody2D"]
+script = ExtResource("1_5b0j7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eton3")
+debug_color = Color(2.64719e-07, 0.239173, 0.207131, 1)
+
+[node name="Camera2D" type="Camera2D" parent="CollisionShape2D"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_eton3")
+debug_color = Color(1.68458e-07, 0.319089, 0.272372, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.222
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
