@@ -1,9 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://drbku36yechos"]
+[gd_scene load_steps=8 format=3 uid="uid://drbku36yechos"]
 
 [ext_resource type="Script" path="res://TNCs and GDs/only_until_you_add_yours.gd" id="1_5b0j7"]
+[ext_resource type="Texture2D" uid="uid://c3y70i2uldb6g" path="res://art/New Piskel (3).png" id="2_hl20i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eton3"]
 size = Vector2(9.5, 9.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1xcr"]
+atlas = ExtResource("2_hl20i")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_maf8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1xcr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j5mj"]
+atlas = ExtResource("2_hl20i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_io65r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j5mj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="only until you add yours" type="CharacterBody2D"]
 script = ExtResource("1_5b0j7")
@@ -17,7 +48,7 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -50)
+position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_eton3")
 debug_color = Color(1.68458e-07, 0.319089, 0.272372, 1)
 
@@ -26,5 +57,16 @@ wait_time = 0.222
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_maf8s")
+autoplay = "default"
+frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_io65r")
+autoplay = "default"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

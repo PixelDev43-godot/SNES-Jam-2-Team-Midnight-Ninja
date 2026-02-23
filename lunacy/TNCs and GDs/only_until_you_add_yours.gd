@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-var move_distance := 50
+var move_distance := 48
 var can_swap := true
 
 @onready var timer: Timer = $Timer
 
 func _physics_process(delta):
-	rotate(0.1)
+	rotate(0.07)
 
 	if Input.is_action_pressed("swap") and can_swap:
 		var forward = Vector2.UP.rotated(rotation)
