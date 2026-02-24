@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://rp2cb71j4j44"]
+[gd_scene load_steps=26 format=4 uid="uid://rp2cb71j4j44"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_hx4dt"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_tio76"]
 [ext_resource type="Texture2D" uid="uid://v6d7xa0jtqwe" path="res://art/tilesets/falthrough tiles.png" id="3_62cav"]
 [ext_resource type="Texture2D" uid="uid://blfb6bt6ytbws" path="res://art/tilesets/sludge tileset (2).png" id="4_3f5i6"]
+[ext_resource type="Script" path="res://TNCs and GDs/platform.gd" id="5_d2mm1"]
 [ext_resource type="PackedScene" uid="uid://drbku36yechos" path="res://TNCs and GDs/only_until_you_add_yours.tscn" id="5_kyrfl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1cn7"]
@@ -783,6 +784,9 @@ physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_e1ka3")
 sources/0 = SubResource("TileSetAtlasSource_oyq5e")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tby71"]
+size = Vector2(63, 28)
+
 [node name="world" type="Node2D"]
 modulate = Color(0.541234, 0.530383, 0.528936, 1)
 
@@ -835,6 +839,7 @@ position = Vector2(0, -188)
 
 [node name="platform" type="Node2D" parent="platforms"]
 position = Vector2(126, -2100)
+script = ExtResource("5_d2mm1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platforms/platform"]
 collision_layer = 2
@@ -868,6 +873,15 @@ z_index = 2
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD+/wAAAQAAAAMAAAD+////AQAAAAMAAAABAAAAAAAFAAMAAAABAP//AAAFAAMAAAD+/wEAAQABAAYAAAD//wEAAQAAAAYAAAAAAAEAAQABAAYAAAABAAEAAQAAAAYAAAA=")
 tile_set = SubResource("TileSet_hdrs3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="platforms/platform"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="platforms/platform/StaticBody2D2"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_tby71")
+debug_color = Color(0.449196, 0.5013, 0.851345, 0.42)
 
 [node name="platform2" type="Node2D" parent="platforms"]
 position = Vector2(-110, -2164)

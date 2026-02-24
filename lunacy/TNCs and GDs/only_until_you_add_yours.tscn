@@ -37,6 +37,8 @@ animations = [{
 }]
 
 [node name="only until you add yours" type="CharacterBody2D"]
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_5b0j7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -48,9 +50,10 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+z_index = 10
 position = Vector2(0, -48)
 shape = SubResource("RectangleShape2D_eton3")
-debug_color = Color(1.68458e-07, 0.319089, 0.272372, 1)
+debug_color = Color(2.64719e-07, 0.323225, 0.233744, 1)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.222
