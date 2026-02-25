@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qeikkcxyoo4u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3alhw"]
+size = Vector2(32, 32)
+
+[node name="WinArea" type="Node2D" groups=["winner"]]
+
+[node name="Area2D" type="Area2D" parent="." groups=["winner"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3alhw")

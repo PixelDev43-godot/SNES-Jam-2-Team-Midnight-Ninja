@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://drbku36yechos"]
+[gd_scene load_steps=9 format=3 uid="uid://drbku36yechos"]
 
 [ext_resource type="Script" path="res://TNCs and GDs/only_until_you_add_yours.gd" id="1_5b0j7"]
 [ext_resource type="Texture2D" uid="uid://c3y70i2uldb6g" path="res://art/New Piskel (3).png" id="2_hl20i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eton3"]
 size = Vector2(9.5, 9.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixw5q"]
+radius = 20.025
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1xcr"]
 atlas = ExtResource("2_hl20i")
@@ -61,6 +64,9 @@ one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ixw5q")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 10
 position = Vector2(0, -48)
@@ -73,3 +79,4 @@ sprite_frames = SubResource("SpriteFrames_io65r")
 autoplay = "default"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
