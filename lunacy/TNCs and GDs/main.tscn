@@ -1,22 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlitrrhhyqmfl"]
+[gd_scene load_steps=7 format=3 uid="uid://dlitrrhhyqmfl"]
 
 [ext_resource type="PackedScene" uid="uid://orbh6hgv666n" path="res://TNCs and GDs/spin_boxes.tscn" id="1_o5qli"]
-[ext_resource type="Script" path="res://main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://rp2cb71j4j44" path="res://TNCs and GDs/Level1.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://rp2cb71j4j44" path="res://TNCs and GDs/level_1.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b6826186sdlgi" path="res://TNCs and GDs/wall_collider.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dxrgy245uoc6d" path="res://TNCs and GDs/pit_collider.tscn" id="6_tefeu"]
-[ext_resource type="AudioStream" path="res://assets/music/lunacy theme.wav" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://qeikkcxyoo4u" path="res://TNCs and GDs/win_area.tscn" id="8_tipki"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_sugp2")
 
 [node name="PlayerBox" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(104, 104)
-
-[node name="Camera" type="Camera2D" parent="PlayerBox"]
-position_smoothing_enabled = true
 
 [node name="level 1" parent="." instance=ExtResource("4_jyhfs")]
 z_index = -1
@@ -138,28 +132,34 @@ position = Vector2(449, -16)
 rotation = 1.5707
 
 [node name="GameSong" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_o6xl0")
 
 [node name="Enemy" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(361, -202)
+script = null
 
 [node name="Enemy2" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(51, -323)
+script = null
 
 [node name="Enemy3" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(357, -466)
+script = null
 
 [node name="Enemy4" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(27, -665)
+script = null
 
 [node name="Enemy5" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(-147, -511)
+script = null
 
 [node name="Enemy6" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(-159, -147)
+script = null
 
 [node name="Enemy7" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(176, -598)
+script = null
 
 [node name="WinArea" parent="." instance=ExtResource("8_tipki")]
 position = Vector2(25, -618)

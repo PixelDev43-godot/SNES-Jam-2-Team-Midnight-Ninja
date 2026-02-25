@@ -1,11 +1,18 @@
-[gd_scene load_steps=26 format=4 uid="uid://rp2cb71j4j44"]
+[gd_scene load_steps=36 format=4 uid="uid://rp2cb71j4j44"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_hx4dt"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_tio76"]
 [ext_resource type="Texture2D" uid="uid://v6d7xa0jtqwe" path="res://art/tilesets/falthrough tiles.png" id="3_62cav"]
 [ext_resource type="Texture2D" uid="uid://blfb6bt6ytbws" path="res://art/tilesets/sludge tileset (2).png" id="4_3f5i6"]
-[ext_resource type="Script" path="res://TNCs and GDs/platform.gd" id="5_d2mm1"]
-[ext_resource type="PackedScene" uid="uid://drbku36yechos" path="res://TNCs and GDs/only_until_you_add_yours.tscn" id="5_kyrfl"]
+[ext_resource type="Script" path="res://TNCs and GDs/level_1_music.gd" id="6_6kesl"]
+[ext_resource type="AudioStream" uid="uid://bdwgxk2i55otn" path="res://music/lunacy themes/lunacy theme.wav" id="7_5ll2y"]
+[ext_resource type="AudioStream" uid="uid://dvnclcuxdr6wq" path="res://music/lunacy themes/lunacy theme flute.wav" id="8_ibcpn"]
+[ext_resource type="Script" path="res://TNCs and GDs/level_2_music.gd" id="9_wnk3e"]
+[ext_resource type="AudioStream" uid="uid://fy3ppe3j2w8b" path="res://music/lunacy themes/lunacy theme sped up with woodwind.wav" id="10_rev1f"]
+[ext_resource type="PackedScene" uid="uid://orbh6hgv666n" path="res://TNCs and GDs/spin_boxes.tscn" id="11_le2nu"]
+[ext_resource type="Script" path="res://TNCs and GDs/level_3_music.gd" id="11_s5x0r"]
+[ext_resource type="AudioStream" uid="uid://bsuqeycpo5k06" path="res://music/infestation.wav" id="11_sgxa5"]
+[ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="12_d0bwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1cn7"]
 texture = ExtResource("1_hx4dt")
@@ -787,6 +794,15 @@ sources/0 = SubResource("TileSetAtlasSource_oyq5e")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tby71"]
 size = Vector2(63, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc1rn"]
+size = Vector2(564, 920)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp58t"]
+size = Vector2(1224, 329)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5omru"]
+size = Vector2(1538, 1469)
+
 [node name="world" type="Node2D"]
 modulate = Color(0.541234, 0.530383, 0.528936, 1)
 
@@ -840,7 +856,6 @@ position = Vector2(0, -188)
 
 [node name="platform" type="Node2D" parent="platforms"]
 position = Vector2(126, -2100)
-script = ExtResource("5_d2mm1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="platforms/platform"]
 collision_layer = 2
@@ -1028,6 +1043,85 @@ shape = SubResource("RectangleShape2D_4n63o")
 position = Vector2(5, 36)
 shape = SubResource("RectangleShape2D_crrr6")
 
-[node name="only until you add yours" parent="." instance=ExtResource("5_kyrfl")]
-z_index = 8
-position = Vector2(824, -1437)
+[node name="playlist setup" type="Node" parent="."]
+
+[node name="level 1 music" type="Node2D" parent="playlist setup"]
+script = ExtResource("6_6kesl")
+
+[node name="music collider 1" type="Area2D" parent="playlist setup/level 1 music"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playlist setup/level 1 music/music collider 1"]
+position = Vector2(186, -213)
+shape = SubResource("RectangleShape2D_mc1rn")
+debug_color = Color(3.80233e-06, 0.626777, 0.50919, 0.42)
+
+[node name="lunacy theme" type="AudioStreamPlayer2D" parent="playlist setup/level 1 music"]
+stream = ExtResource("7_5ll2y")
+volume_db = 1.26
+autoplay = true
+
+[node name="lunacy flute" type="AudioStreamPlayer2D" parent="playlist setup/level 1 music"]
+stream = ExtResource("8_ibcpn")
+
+[node name="level 2 music" type="Node2D" parent="playlist setup"]
+script = ExtResource("9_wnk3e")
+
+[node name="music colider 2" type="Area2D" parent="playlist setup/level 2 music"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playlist setup/level 2 music/music colider 2"]
+position = Vector2(552, -1040.5)
+shape = SubResource("RectangleShape2D_dp58t")
+debug_color = Color(4.33177e-07, 0.581703, 0.362897, 0.509804)
+
+[node name="lunacy sped up" type="AudioStreamPlayer2D" parent="playlist setup/level 2 music"]
+stream = ExtResource("10_rev1f")
+
+[node name="infestation" type="AudioStreamPlayer2D" parent="playlist setup/level 2 music"]
+stream = ExtResource("11_sgxa5")
+
+[node name="level 3 music" type="Node2D" parent="playlist setup"]
+script = ExtResource("11_s5x0r")
+
+[node name="music colider 3" type="Area2D" parent="playlist setup/level 3 music"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playlist setup/level 3 music/music colider 3"]
+position = Vector2(302, -2035.5)
+shape = SubResource("RectangleShape2D_5omru")
+debug_color = Color(9.62615e-08, 0.631187, 0.46609, 0.42)
+
+[node name="lunacy_theme_low" type="AudioStreamPlayer2D" parent="playlist setup/level 3 music"]
+stream = ExtResource("12_d0bwl")
+
+[node name="lunacy theme" type="AudioStreamPlayer2D" parent="playlist setup/level 3 music"]
+stream = ExtResource("7_5ll2y")
+volume_db = 1.26
+autoplay = true
+
+[node name="PlayerMain" parent="." instance=ExtResource("11_le2nu")]
+position = Vector2(-52, -110)
+
+[node name="lunacy theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5ll2y")
+volume_db = 1.26
+autoplay = true
+
+[node name="lunacy theme" type="AudioStreamPlayer2D" parent="lunacy theme"]
+stream = ExtResource("7_5ll2y")
+volume_db = 1.26
+autoplay = true
+
+[connection signal="area_exited" from="playlist setup/level 1 music/music collider 1" to="playlist setup/level 1 music" method="_on_music_collider_1_area_exited"]
+[connection signal="finished" from="playlist setup/level 1 music/lunacy theme" to="playlist setup/level 1 music" method="_on_lunacy_theme_finished"]
+[connection signal="finished" from="playlist setup/level 1 music/lunacy flute" to="playlist setup/level 1 music" method="_on_lunacy_flute_finished"]
+[connection signal="area_entered" from="playlist setup/level 2 music/music colider 2" to="playlist setup/level 2 music" method="_on_music_colider_2_area_entered"]
+[connection signal="area_exited" from="playlist setup/level 2 music/music colider 2" to="playlist setup/level 2 music" method="_on_music_colider_2_area_exited"]
+[connection signal="finished" from="playlist setup/level 2 music/lunacy sped up" to="playlist setup/level 2 music" method="_on_lunacy_sped_up_finished"]
+[connection signal="finished" from="playlist setup/level 2 music/infestation" to="playlist setup/level 2 music" method="_on_infestation_finished"]
+[connection signal="area_entered" from="playlist setup/level 3 music/music colider 3" to="playlist setup/level 3 music" method="_on_music_colider_3_area_entered"]
+[connection signal="area_exited" from="playlist setup/level 3 music/music colider 3" to="playlist setup/level 3 music" method="_on_music_colider_3_area_exited"]
+[connection signal="finished" from="playlist setup/level 3 music/lunacy_theme_low" to="playlist setup/level 3 music" method="_on_lunacy_theme_low_finished"]
+[connection signal="finished" from="playlist setup/level 3 music/lunacy theme" to="playlist setup/level 3 music" method="_on_lunacy_theme_finished"]
+[connection signal="finished" from="lunacy theme" to="playlist setup/level 1 music" method="_on_lunacy_theme_finished"]
+[connection signal="finished" from="lunacy theme/lunacy theme" to="playlist setup/level 1 music" method="_on_lunacy_theme_finished"]

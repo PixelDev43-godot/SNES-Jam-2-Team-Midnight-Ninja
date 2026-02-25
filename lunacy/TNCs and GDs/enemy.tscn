@@ -1,17 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqkfvifkfig8i"]
+[gd_scene load_steps=6 format=3 uid="uid://dqkfvifkfig8i"]
 
-[ext_resource type="Script" uid="uid://decbb4k6tpeif" path="res://scripts/enemy.gd" id="1_7p1mj"]
-[ext_resource type="Texture2D" uid="uid://coblqyqfpdhjf" path="res://assets/art/New Piskel (11).png" id="2_md0e3"]
+[ext_resource type="Script" path="res://TNCs and GDs/enemy.gd" id="1_7p1mj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
-atlas = ExtResource("2_md0e3")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
-atlas = ExtResource("2_md0e3")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wtq4b"]

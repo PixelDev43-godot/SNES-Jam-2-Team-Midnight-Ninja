@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://orbh6hgv666n"]
 
-[ext_resource type="Script" uid="uid://s12mmi80dyjf" path="res://scripts/box_states.gd" id="1_l8fdt"]
-[ext_resource type="Script" uid="uid://djn40673if1ny" path="res://scripts/main_boxes.gd" id="1_xeg8f"]
-[ext_resource type="Script" uid="uid://c53ill45xcqao" path="res://scripts/area_2d.gd" id="3_04unm"]
+[ext_resource type="Script" path="res://TNCs and GDs/box_states.gd" id="1_l8fdt"]
+[ext_resource type="Script" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
+[ext_resource type="Script" path="res://TNCs and GDs/area_2d.gd" id="3_04unm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_04unm"]
 
@@ -17,11 +17,14 @@ script = ExtResource("1_xeg8f")
 
 [node name="BoxDefend" type="CharacterBody2D" parent="."]
 position = Vector2(128, 112)
+collision_layer = 15
+collision_mask = 15
 script = ExtResource("1_l8fdt")
 attack_visuals = false
 
 [node name="BoxVisuals" type="MeshInstance2D" parent="BoxDefend"]
 modulate = Color(0.0313726, 0, 0.976471, 1)
+z_index = 9
 scale = Vector2(16, 16)
 mesh = SubResource("QuadMesh_04unm")
 
@@ -30,12 +33,17 @@ mesh = SubResource("QuadMesh_04unm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxDefend/AreaOne"]
 shape = SubResource("RectangleShape2D_xeg8f")
 
+[node name="Area2D" type="Area2D" parent="BoxDefend"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxDefend/Area2D"]
+
 [node name="BoxAttack" type="CharacterBody2D" parent="."]
 position = Vector2(128, 144)
 script = ExtResource("1_l8fdt")
 
 [node name="BoxVisuals" type="MeshInstance2D" parent="BoxAttack"]
 modulate = Color(0.0313726, 0.435294, 0, 1)
+z_index = 10
 scale = Vector2(16, 16)
 mesh = SubResource("QuadMesh_04unm")
 
@@ -46,6 +54,14 @@ script = ExtResource("3_04unm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxAttack/AreaTwo"]
 shape = SubResource("RectangleShape2D_04unm")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 
 [connection signal="area_entered" from="BoxDefend/AreaOne" to="BoxDefend" method="_on_area_one_area_entered"]
 [connection signal="area_entered" from="BoxAttack/AreaTwo" to="BoxAttack" method="_on_area_two_area_entered"]
