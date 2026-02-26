@@ -8,6 +8,7 @@ var rotatations_s = 0.5
 
 @export var attack_visuals = true
 @onready var animation: AnimatedSprite2D = $animation
+@onready var animation_2: AnimatedSprite2D = $"../BoxAttack/Animation2"
 
 func _physics_process(delta: float) -> void:
 	
@@ -74,7 +75,7 @@ func check_pit_collision_two():
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	animation.play("lose")
 	print("oh no")
-	#$"animation timer".start()
+	$"animation timer".start()
 
 
 
@@ -89,5 +90,20 @@ func _on_pit_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 		pass
 	else:
 		animation.play("fall")
+		print("ahhhhhhhh")
+		$"animation timer".start()
+
+
+func _on_wall_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	animation_2.play("lose")
+	print("oh no")
+	$"animation timer".start()
+
+
+func _on_pit_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if one_attacking:
+		pass
+	else:
+		animation_2.play("fall")
 		print("ahhhhhhhh")
 		$"animation timer".start()

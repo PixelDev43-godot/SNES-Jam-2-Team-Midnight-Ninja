@@ -13,9 +13,24 @@ var radius_lenghth = 0
 var enemy_count = 20
 @onready var reverse = false
 var slow_down_delta = 0.05
-var can_reverse = true
+
 
 func _physics_process(delta):
+	
+	
+	#line placement
+	# Get global positions of the two players
+	var p1 = box_d.position
+	var p2 = box_a.position
+	
+	# Update line points
+	$line.points = [p1, p2]
+	
+	
+	
+	
+	
+	
 	if reverse:
 		target_rotation_speed = -3.0
 	else:
@@ -72,5 +87,9 @@ func enemy_down():
 
 func _on_slime_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	reverse = !reverse
-	can_reverse = false
+	print ("please help me")
+
+
+func _on_slime_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	reverse = !reverse
 	print ("please help me")
