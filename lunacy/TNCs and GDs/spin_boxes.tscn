@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://orbh6hgv666n"]
+[gd_scene load_steps=119 format=3 uid="uid://orbh6hgv666n"]
 
 [ext_resource type="Script" path="res://TNCs and GDs/box_states.gd" id="1_l8fdt"]
 [ext_resource type="Script" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
@@ -406,7 +406,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8a5v3"]
-size = Vector2(8, 11)
+size = Vector2(4, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa6a3"]
+size = Vector2(11, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04unm"]
 size = Vector2(16, 16)
@@ -817,13 +820,21 @@ animation = &"lose"
 autoplay = "defend"
 offset = Vector2(6, -47)
 
-[node name="Area2D" type="Area2D" parent="BoxDefend"]
+[node name="wall collision" type="Area2D" parent="BoxDefend"]
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxDefend/Area2D"]
-position = Vector2(0, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxDefend/wall collision"]
+position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_8a5v3")
+
+[node name="slime collision" type="Area2D" parent="BoxDefend"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxDefend/slime collision"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xa6a3")
 
 [node name="BoxAttack" type="CharacterBody2D" parent="."]
 position = Vector2(128, 144)
@@ -849,14 +860,11 @@ sprite_frames = SubResource("SpriteFrames_0vlus")
 animation = &"fall"
 autoplay = "defend"
 
-[node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 
 [connection signal="area_entered" from="BoxDefend/AreaOne" to="BoxDefend" method="_on_area_one_area_entered"]
-[connection signal="body_shape_entered" from="BoxDefend/Area2D" to="BoxDefend" method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="BoxDefend/wall collision" to="BoxDefend" method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="BoxDefend/slime collision" to="." method="_on_slime_collision_body_shape_entered"]
 [connection signal="area_entered" from="BoxAttack/AreaTwo" to="BoxAttack" method="_on_area_two_area_entered"]

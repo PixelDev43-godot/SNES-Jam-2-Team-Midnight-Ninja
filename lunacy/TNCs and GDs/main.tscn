@@ -1,131 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlitrrhhyqmfl"]
+[gd_scene load_steps=5 format=3 uid="uid://dlitrrhhyqmfl"]
 
 [ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://rp2cb71j4j44" path="res://TNCs and GDs/level_1.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://b6826186sdlgi" path="res://TNCs and GDs/wall_collider.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dxrgy245uoc6d" path="res://TNCs and GDs/pit_collider.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://orbh6hgv666n" path="res://TNCs and GDs/spin_boxes.tscn" id="4_oqsp7"]
 [ext_resource type="PackedScene" uid="uid://qeikkcxyoo4u" path="res://TNCs and GDs/win_area.tscn" id="8_tipki"]
 
 [node name="Main" type="Node2D"]
 
 [node name="level 1" parent="." instance=ExtResource("4_jyhfs")]
 z_index = -1
-
-[node name="WallCollider" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(168, 24)
-
-[node name="WallCollider2" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(212, 24)
-
-[node name="WallCollider3" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(261, 24)
-
-[node name="WallCollider4" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(310, 24)
-
-[node name="WallCollider5" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(356, 24)
-
-[node name="WallCollider6" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(391, 24)
-
-[node name="WallCollider7" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(170, -103)
-
-[node name="WallCollider8" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(217, -103)
-
-[node name="WallCollider9" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(265, -103)
-
-[node name="WallCollider10" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(312, -103)
-
-[node name="WallCollider11" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(361, -103)
-
-[node name="WallCollider12" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(391, -103)
-
-[node name="WallCollider48" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(-23, -616)
-
-[node name="WallCollider49" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(26, -646)
-
-[node name="WallCollider50" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(73, -616)
-
-[node name="WallCollider51" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(121, -616)
-
-[node name="WallCollider54" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(169, -536)
-
-[node name="WallCollider55" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(217, -536)
-
-[node name="WallCollider56" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(265, -536)
-
-[node name="WallCollider57" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(296, -536)
-
-[node name="WallCollider58" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(344, -536)
-
-[node name="WallCollider59" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(392, -536)
-
-[node name="WallCollider72" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(169, -264)
-
-[node name="WallCollider73" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(216, -264)
-
-[node name="WallCollider74" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(264, -264)
-
-[node name="WallCollider75" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(280, -264)
-
-[node name="WallCollider76" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(328, -264)
-
-[node name="WallCollider77" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(377, -264)
-
-[node name="WallCollider78" parent="." instance=ExtResource("5_tbgi4")]
-position = Vector2(392, -264)
-
-[node name="PitCollider" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(185, 200)
-
-[node name="PitCollider2" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-80, -16)
-rotation = 1.5707
-
-[node name="PitCollider3" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(-80, -494)
-rotation = 1.5707
-
-[node name="PitCollider6" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(179, -799)
-rotation = 1.5707
-
-[node name="PitCollider7" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(394, -364)
-
-[node name="PitCollider8" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(394, -320)
-
-[node name="PitCollider4" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(449, -322)
-rotation = 1.5707
-
-[node name="PitCollider5" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(449, -16)
-rotation = 1.5707
 
 [node name="GameSong" type="AudioStreamPlayer2D" parent="."]
 
@@ -160,3 +43,6 @@ script = null
 [node name="WinArea" parent="." instance=ExtResource("8_tipki")]
 position = Vector2(25, -618)
 scale = Vector2(1.5, 1)
+
+[node name="PlayerMain" parent="." instance=ExtResource("4_oqsp7")]
+position = Vector2(507, -2988)

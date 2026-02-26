@@ -13,6 +13,7 @@ var radius_lenghth = 0
 var enemy_count = 20
 @onready var reverse = false
 var slow_down_delta = 0.05
+var can_reverse = true
 
 func _physics_process(delta):
 	if reverse:
@@ -30,9 +31,9 @@ func _physics_process(delta):
 	else:
 		box_a.global_position = get_rotated_pos(pivot_point, radius_a, angle)
 	if is_attack:
-		$Camera.global_position = box_d.global_position
+		pass#$Camera.global_position = box_d.global_position
 	else:
-		$Camera.global_position = box_a.global_position
+		pass#$Camera.global_position = box_a.global_position
 	if Input.is_action_just_pressed("p-swap"):
 		swap_pivots()
 		is_attack = !is_attack
@@ -66,3 +67,14 @@ func swap_pivots():
 func enemy_down():
 	enemy_count -= 1
 	
+
+
+
+func _on_slime_collision_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	pass
+
+
+func _on_slime_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	reverse = !reverse
+	can_reverse = false
+	print ("please help me")
