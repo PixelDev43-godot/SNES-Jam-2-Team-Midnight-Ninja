@@ -35,4 +35,4 @@ func _on_lunacy_flute_finished() -> void:
 
 
 func _on_music_collider_1_area_exited(area: Area2D) -> void:
-	on = false
+	on = false  

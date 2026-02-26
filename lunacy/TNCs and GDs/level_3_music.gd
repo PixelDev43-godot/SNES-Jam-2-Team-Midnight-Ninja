@@ -7,14 +7,14 @@ var on = false
 @onready var lunacy_theme_low: AudioStreamPlayer2D = $lunacy_theme_low
 @onready var lunacy_theme: AudioStreamPlayer2D = $"lunacy theme"
 
-
+func _physics_process(delta):
+	if on == false:
+		lunacy_theme_low.stop()
+		lunacy_theme.stop()
 
 func _ready():
 	choice = [true, false].pick_random()
 	print("Choice is: ", choice)
-
-func _on_music_collider_2_body_exited(body: Node2D) -> void:
-	on = false
 
 
 func _on_lunacy_theme_low_finished() -> void:

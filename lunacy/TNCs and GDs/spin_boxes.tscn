@@ -311,6 +311,7 @@ animations = [{
 }]
 
 [node name="PlayerMain" type="Node2D" groups=["player_group"]]
+z_index = 13
 script = ExtResource("1_xeg8f")
 
 [node name="BoxDefend" type="CharacterBody2D" parent="."]
@@ -332,6 +333,7 @@ mesh = SubResource("QuadMesh_04unm")
 shape = SubResource("RectangleShape2D_xeg8f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoxDefend"]
+z_index = 16
 position = Vector2(-6, 47)
 sprite_frames = SubResource("SpriteFrames_j65aj")
 animation = &"defend"
@@ -358,6 +360,7 @@ script = ExtResource("3_04unm")
 shape = SubResource("RectangleShape2D_04unm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BoxAttack"]
+z_index = 13
 sprite_frames = SubResource("SpriteFrames_0vlus")
 animation = &"defend"
 autoplay = "defend"

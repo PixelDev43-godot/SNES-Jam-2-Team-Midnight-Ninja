@@ -891,8 +891,8 @@ tile_map_data = PackedByteArray("AAD+/wAAAQAAAAMAAAD+////AQAAAAMAAAABAAAAAAAFAAM
 tile_set = SubResource("TileSet_hdrs3")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="platforms/platform"]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="platforms/platform/StaticBody2D2"]
 position = Vector2(0.5, 0)
@@ -1043,85 +1043,70 @@ shape = SubResource("RectangleShape2D_4n63o")
 position = Vector2(5, 36)
 shape = SubResource("RectangleShape2D_crrr6")
 
-[node name="playlist setup" type="Node" parent="."]
+[node name="PlayerMain" parent="." instance=ExtResource("11_le2nu")]
+position = Vector2(-52, -110)
 
-[node name="level 1 music" type="Node2D" parent="playlist setup"]
+[node name="playlist setup" type="Node" parent="PlayerMain"]
+
+[node name="level 1 music" type="Node2D" parent="PlayerMain/playlist setup"]
 script = ExtResource("6_6kesl")
 
-[node name="music collider 1" type="Area2D" parent="playlist setup/level 1 music"]
-collision_layer = 7
-collision_mask = 7
+[node name="music collider 1" type="Area2D" parent="PlayerMain/playlist setup/level 1 music"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playlist setup/level 1 music/music collider 1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMain/playlist setup/level 1 music/music collider 1"]
 position = Vector2(186, -213)
 shape = SubResource("RectangleShape2D_mc1rn")
 debug_color = Color(3.80233e-06, 0.626777, 0.50919, 0.42)
 
-[node name="lunacy theme" type="AudioStreamPlayer2D" parent="playlist setup/level 1 music"]
+[node name="lunacy theme" type="AudioStreamPlayer2D" parent="PlayerMain/playlist setup/level 1 music"]
 stream = ExtResource("7_5ll2y")
 volume_db = 1.26
 autoplay = true
 
-[node name="lunacy flute" type="AudioStreamPlayer2D" parent="playlist setup/level 1 music"]
+[node name="lunacy flute" type="AudioStreamPlayer2D" parent="PlayerMain/playlist setup/level 1 music"]
 stream = ExtResource("8_ibcpn")
 
-[node name="level 2 music" type="Node2D" parent="playlist setup"]
+[node name="level 2 music" type="Node2D" parent="PlayerMain/playlist setup"]
 script = ExtResource("9_wnk3e")
 
-[node name="music colider 2" type="Area2D" parent="playlist setup/level 2 music"]
+[node name="music colider 2" type="Area2D" parent="PlayerMain/playlist setup/level 2 music"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playlist setup/level 2 music/music colider 2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMain/playlist setup/level 2 music/music colider 2"]
 position = Vector2(552, -1040.5)
 shape = SubResource("RectangleShape2D_dp58t")
 debug_color = Color(4.33177e-07, 0.581703, 0.362897, 0.509804)
 
-[node name="lunacy sped up" type="AudioStreamPlayer2D" parent="playlist setup/level 2 music"]
+[node name="lunacy sped up" type="AudioStreamPlayer2D" parent="PlayerMain/playlist setup/level 2 music"]
 stream = ExtResource("10_rev1f")
 
-[node name="infestation" type="AudioStreamPlayer2D" parent="playlist setup/level 2 music"]
+[node name="infestation" type="AudioStreamPlayer2D" parent="PlayerMain/playlist setup/level 2 music"]
 stream = ExtResource("11_sgxa5")
 
-[node name="level 3 music" type="Node2D" parent="playlist setup"]
+[node name="level 3 music" type="Node2D" parent="PlayerMain/playlist setup"]
 script = ExtResource("11_s5x0r")
 
-[node name="music colider 3" type="Area2D" parent="playlist setup/level 3 music"]
+[node name="music colider 3" type="Area2D" parent="PlayerMain/playlist setup/level 3 music"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playlist setup/level 3 music/music colider 3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMain/playlist setup/level 3 music/music colider 3"]
 position = Vector2(302, -2035.5)
 shape = SubResource("RectangleShape2D_5omru")
 debug_color = Color(9.62615e-08, 0.631187, 0.46609, 0.42)
 
-[node name="lunacy_theme_low" type="AudioStreamPlayer2D" parent="playlist setup/level 3 music"]
+[node name="lunacy_theme_low" type="AudioStreamPlayer2D" parent="PlayerMain/playlist setup/level 3 music"]
 stream = ExtResource("12_d0bwl")
 
-[node name="lunacy theme" type="AudioStreamPlayer2D" parent="playlist setup/level 3 music"]
+[node name="lunacy theme" type="AudioStreamPlayer2D" parent="PlayerMain/playlist setup/level 3 music"]
 stream = ExtResource("7_5ll2y")
 volume_db = 1.26
-autoplay = true
 
-[node name="PlayerMain" parent="." instance=ExtResource("11_le2nu")]
-position = Vector2(-52, -110)
-
-[node name="lunacy theme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_5ll2y")
-volume_db = 1.26
-autoplay = true
-
-[node name="lunacy theme" type="AudioStreamPlayer2D" parent="lunacy theme"]
-stream = ExtResource("7_5ll2y")
-volume_db = 1.26
-autoplay = true
-
-[connection signal="area_exited" from="playlist setup/level 1 music/music collider 1" to="playlist setup/level 1 music" method="_on_music_collider_1_area_exited"]
-[connection signal="finished" from="playlist setup/level 1 music/lunacy theme" to="playlist setup/level 1 music" method="_on_lunacy_theme_finished"]
-[connection signal="finished" from="playlist setup/level 1 music/lunacy flute" to="playlist setup/level 1 music" method="_on_lunacy_flute_finished"]
-[connection signal="area_entered" from="playlist setup/level 2 music/music colider 2" to="playlist setup/level 2 music" method="_on_music_colider_2_area_entered"]
-[connection signal="area_exited" from="playlist setup/level 2 music/music colider 2" to="playlist setup/level 2 music" method="_on_music_colider_2_area_exited"]
-[connection signal="finished" from="playlist setup/level 2 music/lunacy sped up" to="playlist setup/level 2 music" method="_on_lunacy_sped_up_finished"]
-[connection signal="finished" from="playlist setup/level 2 music/infestation" to="playlist setup/level 2 music" method="_on_infestation_finished"]
-[connection signal="area_entered" from="playlist setup/level 3 music/music colider 3" to="playlist setup/level 3 music" method="_on_music_colider_3_area_entered"]
-[connection signal="area_exited" from="playlist setup/level 3 music/music colider 3" to="playlist setup/level 3 music" method="_on_music_colider_3_area_exited"]
-[connection signal="finished" from="playlist setup/level 3 music/lunacy_theme_low" to="playlist setup/level 3 music" method="_on_lunacy_theme_low_finished"]
-[connection signal="finished" from="playlist setup/level 3 music/lunacy theme" to="playlist setup/level 3 music" method="_on_lunacy_theme_finished"]
-[connection signal="finished" from="lunacy theme" to="playlist setup/level 1 music" method="_on_lunacy_theme_finished"]
-[connection signal="finished" from="lunacy theme/lunacy theme" to="playlist setup/level 1 music" method="_on_lunacy_theme_finished"]
+[connection signal="area_exited" from="PlayerMain/playlist setup/level 1 music/music collider 1" to="PlayerMain/playlist setup/level 1 music" method="_on_music_collider_1_area_exited"]
+[connection signal="finished" from="PlayerMain/playlist setup/level 1 music/lunacy theme" to="PlayerMain/playlist setup/level 1 music" method="_on_lunacy_theme_finished"]
+[connection signal="finished" from="PlayerMain/playlist setup/level 1 music/lunacy flute" to="PlayerMain/playlist setup/level 1 music" method="_on_lunacy_flute_finished"]
+[connection signal="area_entered" from="PlayerMain/playlist setup/level 2 music/music colider 2" to="PlayerMain/playlist setup/level 2 music" method="_on_music_colider_2_area_entered"]
+[connection signal="area_exited" from="PlayerMain/playlist setup/level 2 music/music colider 2" to="PlayerMain/playlist setup/level 2 music" method="_on_music_colider_2_area_exited"]
+[connection signal="finished" from="PlayerMain/playlist setup/level 2 music/lunacy sped up" to="PlayerMain/playlist setup/level 2 music" method="_on_lunacy_sped_up_finished"]
+[connection signal="finished" from="PlayerMain/playlist setup/level 2 music/infestation" to="PlayerMain/playlist setup/level 2 music" method="_on_infestation_finished"]
+[connection signal="area_entered" from="PlayerMain/playlist setup/level 3 music/music colider 3" to="PlayerMain/playlist setup/level 3 music" method="_on_music_colider_3_area_entered"]
+[connection signal="area_exited" from="PlayerMain/playlist setup/level 3 music/music colider 3" to="PlayerMain/playlist setup/level 3 music" method="_on_music_colider_3_area_exited"]
+[connection signal="finished" from="PlayerMain/playlist setup/level 3 music/lunacy_theme_low" to="PlayerMain/playlist setup/level 3 music" method="_on_lunacy_theme_low_finished"]
+[connection signal="finished" from="PlayerMain/playlist setup/level 3 music/lunacy theme" to="PlayerMain/playlist setup/level 3 music" method="_on_lunacy_theme_finished"]
