@@ -5,7 +5,10 @@ extends CharacterBody2D
 var one_attacking = false
 var two_attacking = true
 var rotatations_s = 0.5
+
 @export var attack_visuals = true
+@onready var animation: AnimatedSprite2D = $animation
+
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("p-swap"):
@@ -66,3 +69,8 @@ func check_pit_collision_two():
 					pass
 				else:
 					get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
+
+
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	animation.play("lose")
+	print("yay")
