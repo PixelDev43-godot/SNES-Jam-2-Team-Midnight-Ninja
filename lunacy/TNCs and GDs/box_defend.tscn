@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://mqtiofmvlv51"]
+[gd_scene load_steps=64 format=3 uid="uid://mqtiofmvlv51"]
 
 [ext_resource type="Script" path="res://TNCs and GDs/box_states.gd" id="1_0nvem"]
 [ext_resource type="Texture2D" uid="uid://dwsbn1cke1key" path="res://art/player 2 lose.png" id="2_oi0t6"]
@@ -409,6 +409,9 @@ size = Vector2(11, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ebgs"]
 size = Vector2(3, 2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf4p8"]
+size = Vector2(12, 16)
+
 [node name="BoxDefend" type="CharacterBody2D"]
 position = Vector2(0, -60)
 collision_layer = 15
@@ -462,6 +465,13 @@ shape = SubResource("RectangleShape2D_6ebgs")
 [node name="animation timer" type="Timer" parent="."]
 wait_time = 1.39
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nf4p8")
 
 [connection signal="area_entered" from="AreaOne" to="." method="_on_area_one_area_entered"]
 [connection signal="body_shape_entered" from="wall collision" to="." method="_on_area_2d_body_shape_entered"]

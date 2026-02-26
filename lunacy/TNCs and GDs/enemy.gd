@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 20.0
+var speed = 50.0
 func _physics_process(delta: float) -> void:
 	var target_pos: Vector2
 	var players = get_tree().get_nodes_in_group("player_group")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://rp2cb71j4j44"]
+[gd_scene load_steps=38 format=4 uid="uid://rp2cb71j4j44"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_hx4dt"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_tio76"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://TNCs and GDs/level_3_music.gd" id="11_s5x0r"]
 [ext_resource type="AudioStream" uid="uid://bsuqeycpo5k06" path="res://music/infestation.wav" id="11_sgxa5"]
 [ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="12_d0bwl"]
+[ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="13_yosqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1cn7"]
 texture = ExtResource("1_hx4dt")
@@ -1147,8 +1148,11 @@ stream = ExtResource("10_rev1f")
 [node name="infestation" type="AudioStreamPlayer2D" parent="playlist setup/level 5 music"]
 stream = ExtResource("11_sgxa5")
 
+[node name="Enemy" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(20, -128)
+
 [node name="PlayerMain" parent="." instance=ExtResource("5_wgwab")]
-position = Vector2(2, 0)
+position = Vector2(53, 84)
 
 [connection signal="area_exited" from="playlist setup/level 1 music/music collider 1" to="playlist setup/level 1 music" method="_on_music_collider_1_area_exited"]
 [connection signal="finished" from="playlist setup/level 1 music/lunacy theme" to="playlist setup/level 1 music" method="_on_lunacy_theme_finished"]

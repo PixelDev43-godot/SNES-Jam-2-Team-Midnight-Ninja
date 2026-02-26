@@ -207,12 +207,9 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7p1mj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyShape"]
-z_index = 10
+z_index = 15
 sprite_frames = SubResource("SpriteFrames_wtq4b")
-animation = &"blow up"
 autoplay = "default"
-frame = 16
-frame_progress = 1.0
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 

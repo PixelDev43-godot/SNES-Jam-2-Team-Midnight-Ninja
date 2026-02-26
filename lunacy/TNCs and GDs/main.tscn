@@ -13,7 +13,7 @@ z_index = -1
 [node name="GameSong" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Enemy" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(361, -202)
+position = Vector2(349, -203)
 script = null
 
 [node name="Enemy2" parent="." instance=ExtResource("2_0wfyh")]
@@ -45,4 +45,7 @@ position = Vector2(25, -618)
 scale = Vector2(1.5, 1)
 
 [node name="PlayerMain" parent="." instance=ExtResource("4_oqsp7")]
-position = Vector2(507, -2988)
+position = Vector2(113, 123)
+
+[node name="Enemy8" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(76, -31)

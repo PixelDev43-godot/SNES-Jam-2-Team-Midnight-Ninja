@@ -10,7 +10,11 @@ script = ExtResource("1_xeg8f")
 
 [node name="BoxDefend" parent="." instance=ExtResource("2_akub1")]
 
+[node name="AreaOne" parent="BoxDefend" index="1" groups=["player_group"]]
+
 [node name="BoxAttack" parent="." instance=ExtResource("3_uhcwk")]
+
+[node name="AreaTwo" parent="BoxAttack" index="1" groups=["player_group"]]
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -19,7 +23,7 @@ position_smoothing_enabled = true
 [node name="line" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, -60)
 width = 2.0
-default_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+default_color = Color(0.255659, 0.255659, 0.255659, 1)
 
 [editable path="BoxDefend"]
 [editable path="BoxAttack"]
