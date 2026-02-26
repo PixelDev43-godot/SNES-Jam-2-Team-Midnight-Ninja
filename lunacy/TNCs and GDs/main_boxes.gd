@@ -31,9 +31,9 @@ func _physics_process(delta):
 	else:
 		box_a.global_position = get_rotated_pos(pivot_point, radius_a, angle)
 	if is_attack:
-		pass#$Camera.global_position = box_d.global_position
+		$Camera.global_position = box_d.global_position
 	else:
-		pass#$Camera.global_position = box_a.global_position
+		$Camera.global_position = box_a.global_position
 	if Input.is_action_just_pressed("p-swap"):
 		swap_pivots()
 		is_attack = !is_attack
@@ -68,10 +68,6 @@ func enemy_down():
 	enemy_count -= 1
 	
 
-
-
-func _on_slime_collision_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	pass
 
 
 func _on_slime_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

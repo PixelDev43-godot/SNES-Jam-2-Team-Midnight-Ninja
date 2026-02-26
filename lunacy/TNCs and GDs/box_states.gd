@@ -74,3 +74,20 @@ func check_pit_collision_two():
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	animation.play("lose")
 	print("oh no")
+	#$"animation timer".start()
+
+
+
+
+func _on_animation_timer_timeout() -> void:
+	print("should work")
+	get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
+
+
+func _on_pit_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if one_attacking:
+		pass
+	else:
+		animation.play("fall")
+		print("ahhhhhhhh")
+		$"animation timer".start()
