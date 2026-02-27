@@ -16,6 +16,12 @@ var can_die = true
 
 func _physics_process(delta: float) -> void:
 	
+	if Input.is_action_just_pressed("p-swap") and pit2:
+		if can_die:
+			animation.play("fall")
+			$"animation timer".start()
+			can_die = false
+	
 	if Input.is_action_just_pressed("p-swap") and pit:
 		if can_die:
 			animation.play("fall")
@@ -114,7 +120,6 @@ func _on_wall_collision_2_area_shape_entered(body_rid: RID, body: Node2D, body_s
 func _on_pit_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if $pit_collision_2.get_overlapping_bodies().size() > 0:
 		pit2 = true
-		print("why?")
 		print(pit2)
 	else:
 		pit2 = false
@@ -130,7 +135,6 @@ func _on_wall_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_s
 func _on_pit_collision_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if $pit_collision.get_overlapping_bodies().size() > 0:
 		pit = true
-		print("why?")
 		print(pit)
 	else:
 		pit = false
