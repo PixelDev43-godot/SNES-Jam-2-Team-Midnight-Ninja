@@ -8,7 +8,7 @@
 [sub_resource type="QuadMesh" id="QuadMesh_04unm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xeg8f"]
-size = Vector2(16, 16)
+size = Vector2(20, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2q14"]
 atlas = ExtResource("2_oi0t6")
@@ -410,7 +410,7 @@ size = Vector2(11, 16)
 size = Vector2(3, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nf4p8"]
-size = Vector2(12, 16)
+size = Vector2(31, 38)
 
 [node name="BoxDefend" type="CharacterBody2D"]
 position = Vector2(0, -60)
@@ -420,6 +420,7 @@ script = ExtResource("1_0nvem")
 attack_visuals = false
 
 [node name="BoxVisuals" type="MeshInstance2D" parent="."]
+visible = false
 modulate = Color(0.0313726, 0, 0.976471, 1)
 z_index = -2
 scale = Vector2(16, 16)
@@ -430,6 +431,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOne"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_xeg8f")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
@@ -472,7 +474,8 @@ one_shot = true
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy collision"]
+[node name="enemy collider" type="CollisionShape2D" parent="enemy collision"]
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_nf4p8")
 
 [connection signal="area_entered" from="AreaOne" to="." method="_on_area_one_area_entered"]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://rp2cb71j4j44"]
+[gd_scene load_steps=16 format=4 uid="uid://rp2cb71j4j44"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_hx4dt"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_tio76"]
 [ext_resource type="Texture2D" uid="uid://v6d7xa0jtqwe" path="res://art/tilesets/falthrough tiles.png" id="3_62cav"]
 [ext_resource type="Texture2D" uid="uid://blfb6bt6ytbws" path="res://art/tilesets/sludge tileset (2).png" id="4_3f5i6"]
 [ext_resource type="PackedScene" uid="uid://orbh6hgv666n" path="res://TNCs and GDs/spin_boxes.tscn" id="5_wgwab"]
+[ext_resource type="AudioStream" uid="uid://dvnclcuxdr6wq" path="res://music/lunacy themes/lunacy theme flute.wav" id="7_u5d6h"]
+[ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="8_ftnki"]
+[ext_resource type="AudioStream" uid="uid://bdwgxk2i55otn" path="res://music/lunacy themes/lunacy theme.wav" id="9_w2em5"]
 [ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="13_yosqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5c20q"]
@@ -320,6 +323,13 @@ sources/2 = SubResource("TileSetAtlasSource_lo4qa")
 sources/3 = SubResource("TileSetAtlasSource_ibdyc")
 sources/4 = SubResource("TileSetAtlasSource_t1e50")
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_r7t8v"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("7_u5d6h")
+stream_1 = ExtResource("8_ftnki")
+stream_2 = ExtResource("9_w2em5")
+
 [node name="world" type="Node2D"]
 modulate = Color(0.541234, 0.530383, 0.528936, 1)
 
@@ -352,7 +362,11 @@ position = Vector2(115, -2341)
 enabled = false
 
 [node name="Enemy" parent="." instance=ExtResource("13_yosqs")]
-position = Vector2(20, -128)
+position = Vector2(22, -302)
 
 [node name="PlayerMain" parent="." instance=ExtResource("5_wgwab")]
 position = Vector2(53, 84)
+
+[node name="playlist" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamPlaylist_r7t8v")
+autoplay = true

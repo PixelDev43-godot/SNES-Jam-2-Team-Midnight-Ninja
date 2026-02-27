@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cnowgv6cbfk7l"]
+[gd_scene load_steps=63 format=3 uid="uid://cnowgv6cbfk7l"]
 
 [ext_resource type="Script" path="res://TNCs and GDs/box_states.gd" id="1_pxxok"]
 [ext_resource type="Script" path="res://TNCs and GDs/area_2d.gd" id="2_dd35l"]
@@ -9,7 +9,7 @@
 [sub_resource type="QuadMesh" id="QuadMesh_04unm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04unm"]
-size = Vector2(16, 16)
+size = Vector2(16, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0p12"]
 atlas = ExtResource("3_elpsq")
@@ -396,10 +396,14 @@ size = Vector2(3, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa6a3"]
 size = Vector2(11, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2e2a"]
+size = Vector2(29, 31)
+
 [node name="BoxAttack" type="CharacterBody2D"]
 script = ExtResource("1_pxxok")
 
 [node name="BoxVisuals" type="MeshInstance2D" parent="."]
+visible = false
 modulate = Color(0.0313726, 0.435294, 0, 1)
 z_index = -2
 scale = Vector2(16, 16)
@@ -413,6 +417,7 @@ collision_mask = 2
 script = ExtResource("2_dd35l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTwo"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_04unm")
 
 [node name="Animation2" type="AnimatedSprite2D" parent="."]
@@ -449,7 +454,12 @@ collision_mask = 4
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xa6a3")
 
+[node name="enemy collision2" type="Area2D" parent="."]
+
+[node name="enemy collider2" type="CollisionShape2D" parent="enemy collision2"]
+position = Vector2(2.5, -1.5)
+shape = SubResource("RectangleShape2D_o2e2a")
+
 [connection signal="area_entered" from="AreaTwo" to="." method="_on_area_two_area_entered"]
 [connection signal="body_shape_entered" from="wall collision 2" to="." method="_on_wall_collision_body_shape_entered"]
-[connection signal="body_shape_entered" from="wall collision 2" to="." method="_on_wall_collision_2_body_shape_entered"]
 [connection signal="body_shape_entered" from="pit collision 2" to="." method="_on_pit_collision_2_body_shape_entered"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rv1pq08n2lje"
-path="res://.godot/imported/heavy drone.png-ca7010377549c207a9219c0f90abed54.ctex"
+path="res://.godot/imported/heavy drone.png-c27459f6aaeeefc88cb5ad896eb9b89b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TNCs and GDs/heavy drone.png"
-dest_files=["res://.godot/imported/heavy drone.png-ca7010377549c207a9219c0f90abed54.ctex"]
+source_file="res://art/heavy drone.png"
+dest_files=["res://.godot/imported/heavy drone.png-c27459f6aaeeefc88cb5ad896eb9b89b.ctex"]
 
 [params]
 

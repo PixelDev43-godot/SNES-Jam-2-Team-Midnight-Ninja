@@ -25,5 +25,8 @@ points = PackedVector2Array(0, 0, 0, -60)
 width = 2.0
 default_color = Color(0.255659, 0.255659, 0.255659, 1)
 
+[connection signal="body_shape_entered" from="BoxDefend/wall collision" to="." method="_on_wall_collision_body_shape_entered"]
+[connection signal="body_shape_entered" from="BoxAttack/wall collision 2" to="." method="_on_wall_collision_2_body_shape_entered"]
+
 [editable path="BoxDefend"]
 [editable path="BoxAttack"]

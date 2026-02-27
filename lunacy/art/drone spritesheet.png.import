@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4kknfcl0xwvs"
-path="res://.godot/imported/drone spritesheet.png-c39836c5d9981a0986154bb77a872413.ctex"
+path="res://.godot/imported/drone spritesheet.png-8ec6e5f38de36fa4f4e2d9eeb5618499.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TNCs and GDs/drone spritesheet.png"
-dest_files=["res://.godot/imported/drone spritesheet.png-c39836c5d9981a0986154bb77a872413.ctex"]
+source_file="res://art/drone spritesheet.png"
+dest_files=["res://.godot/imported/drone spritesheet.png-8ec6e5f38de36fa4f4e2d9eeb5618499.ctex"]
 
 [params]
 
