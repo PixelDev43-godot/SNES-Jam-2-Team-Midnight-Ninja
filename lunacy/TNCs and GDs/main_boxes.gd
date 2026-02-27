@@ -15,11 +15,9 @@ var can_rotate = true
 @onready var box_d = $BoxDefend
 @onready var box_a = $BoxAttack
 @onready var reverse = false
-@onready var enemy_collider: CollisionShape2D = $"enemy collision/enemy collider"
-@onready var enemy_collider_2: CollisionShape2D = $"enemy collision2/enemy collider2"
-
 
 func _physics_process(delta):
+	if can_rotate:
 	#line placement
 	# Get positions of the two players
 		var p1 = box_d.position

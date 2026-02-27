@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1uatslgw0c0k"]
 
-[ext_resource type="Script" uid="uid://buhf62i4qrux1" path="res://scripts/control_screen.gd" id="1_l8rke"]
+[ext_resource type="Script" path="res://TNCs and GDs/control_screen.gd" id="1_l8rke"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ixwfw"]
 

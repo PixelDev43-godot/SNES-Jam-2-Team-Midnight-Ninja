@@ -16,6 +16,9 @@ script = ExtResource("1_xeg8f")
 
 [node name="AreaTwo" parent="BoxAttack" index="1" groups=["player_group"]]
 
+[node name="Animation2" parent="BoxAttack" index="2"]
+animation = &"fall"
+
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true

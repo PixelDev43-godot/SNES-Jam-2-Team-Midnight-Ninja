@@ -5,12 +5,22 @@ extends CharacterBody2D
 var one_attacking = false
 var two_attacking = true
 var rotatations_s = 0.5
-
+var pit = false
+var pit2 = false
+var can_die = true
 @export var attack_visuals = true
 @onready var animation: AnimatedSprite2D = $animation
-@onready var animation2: AnimatedSprite2D = $"../BoxAttack/Animation2"
+@onready var animation2: AnimatedSprite2D = $Animation2
+
+
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("p-swap") and pit:
+		if can_die:
+			animation.play("fall")
+			$"animation timer".start()
+			can_die = false
 	
 	if Input.is_action_just_pressed("p-swap"):
 			one_attacking = !one_attacking
@@ -40,7 +50,9 @@ func _on_area_one_area_entered(area: Area2D) -> void:
 
 
 func _on_area_two_area_entered(area: Area2D) -> void:
+		print(" help me")
 		if area.is_in_group("enemy_group"):
+			print("why wont this work?")
 			if two_attacking:
 				area.get_parent().queue_free()
 				get_parent().enemy_down()
@@ -73,7 +85,7 @@ func check_pit_collision_two():
 					get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
 
 
-func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+func _on_wall_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	animation.play("lose")
 	print("oh no")
 	$"animation timer".start()
@@ -85,17 +97,12 @@ func _on_animation_timer_timeout() -> void:
 	print("should work")
 	get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
 
+func _on_pit_collision_2_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pit = false
+		
 
-func _on_pit_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if one_attacking:
-		pass
-	else:
-		animation.play("fall")
-		print("ahhhhhhhh")
-		$"animation timer".start()
-
-
-func _on_wall_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	
+func _on_wall_collision_2_area_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	animation2.play("lose")
 	print("oh no")
 	$"animation timer".start()
@@ -103,9 +110,26 @@ func _on_wall_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_s
 
 
 func _on_pit_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if one_attacking:
-		pass
+	if $pit_collision_2.get_overlapping_bodies().size() > 0:
+		pit2 = true
+		print("why?")
+		print(pit2)
 	else:
-		animation2.play("fall")
-		print("ahhhhhhhh")
-		$"animation timer".start()
+		pit2 = false
+		print(pit2)
+
+
+func _on_wall_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	animation2.play("lose")
+	print("hehe")
+	$"animation timer".start()
+
+
+func _on_pit_collision_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if $pit_collision.get_overlapping_bodies().size() > 0:
+		pit = true
+		print("why?")
+		print(pit)
+	else:
+		pit = false
+		print(pit)

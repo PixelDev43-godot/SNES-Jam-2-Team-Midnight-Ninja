@@ -397,7 +397,7 @@ size = Vector2(3, 2)
 size = Vector2(11, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2e2a"]
-size = Vector2(29, 31)
+size = Vector2(8, 14)
 
 [node name="BoxAttack" type="CharacterBody2D"]
 script = ExtResource("1_pxxok")
@@ -412,8 +412,8 @@ mesh = SubResource("QuadMesh_04unm")
 [node name="AreaTwo" type="Area2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("2_dd35l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTwo"]
@@ -422,6 +422,7 @@ shape = SubResource("RectangleShape2D_04unm")
 
 [node name="Animation2" type="AnimatedSprite2D" parent="."]
 z_index = 13
+position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_0vlus")
 animation = &"defend"
 autoplay = "defend"
@@ -434,16 +435,16 @@ collision_mask = 8
 position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_8a5v3")
 
-[node name="pit collision 2" type="Area2D" parent="."]
+[node name="pit_collision_2" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pit collision 2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pit_collision_2"]
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_6ebgs")
 
 [node name="animation timer" type="Timer" parent="."]
-wait_time = 1.39
+wait_time = 1.212
 one_shot = true
 
 [node name="slime collision2" type="Area2D" parent="."]
@@ -455,11 +456,16 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xa6a3")
 
 [node name="enemy collision2" type="Area2D" parent="."]
+collision_layer = 224
+collision_mask = 224
 
 [node name="enemy collider2" type="CollisionShape2D" parent="enemy collision2"]
-position = Vector2(2.5, -1.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_o2e2a")
 
 [connection signal="area_entered" from="AreaTwo" to="." method="_on_area_two_area_entered"]
-[connection signal="body_shape_entered" from="wall collision 2" to="." method="_on_wall_collision_body_shape_entered"]
-[connection signal="body_shape_entered" from="pit collision 2" to="." method="_on_pit_collision_2_body_shape_entered"]
+[connection signal="area_shape_entered" from="wall collision 2" to="." method="_on_wall_collision_2_area_shape_entered"]
+[connection signal="body_shape_entered" from="wall collision 2" to="." method="_on_wall_collision_2_body_shape_entered"]
+[connection signal="body_shape_entered" from="pit_collision_2" to="." method="_on_pit_collision_2_body_shape_entered"]
+[connection signal="body_shape_exited" from="pit_collision_2" to="." method="_on_pit_collision_2_body_shape_exited"]
+[connection signal="timeout" from="animation timer" to="." method="_on_animation_timer_timeout"]

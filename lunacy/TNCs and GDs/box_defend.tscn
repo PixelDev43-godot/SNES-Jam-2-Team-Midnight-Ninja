@@ -407,10 +407,10 @@ size = Vector2(4, 7)
 size = Vector2(11, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ebgs"]
-size = Vector2(3, 2)
+size = Vector2(6, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nf4p8"]
-size = Vector2(31, 38)
+size = Vector2(10, 13)
 
 [node name="BoxDefend" type="CharacterBody2D"]
 position = Vector2(0, -60)
@@ -458,12 +458,12 @@ collision_mask = 4
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xa6a3")
 
-[node name="pit collision" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+[node name="pit_collision" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pit collision"]
-position = Vector2(-0.5, 5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pit_collision"]
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_6ebgs")
 
 [node name="animation timer" type="Timer" parent="."]
@@ -471,14 +471,14 @@ wait_time = 1.39
 one_shot = true
 
 [node name="enemy collision" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 224
+collision_mask = 224
 
 [node name="enemy collider" type="CollisionShape2D" parent="enemy collision"]
-position = Vector2(-0.5, 2)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_nf4p8")
 
 [connection signal="area_entered" from="AreaOne" to="." method="_on_area_one_area_entered"]
-[connection signal="body_shape_entered" from="wall collision" to="." method="_on_area_2d_body_shape_entered"]
-[connection signal="body_shape_entered" from="pit collision" to="." method="_on_pit_collision_body_shape_entered"]
+[connection signal="body_shape_entered" from="wall collision" to="." method="_on_wall_collision_body_shape_entered"]
+[connection signal="body_shape_exited" from="pit_collision" to="." method="_on_pit_collision_body_shape_exited"]
 [connection signal="timeout" from="animation timer" to="." method="_on_animation_timer_timeout"]

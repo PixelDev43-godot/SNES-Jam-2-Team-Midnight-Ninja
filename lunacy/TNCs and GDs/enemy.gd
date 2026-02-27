@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
+	self.queue_free()
 
 
 
@@ -28,4 +28,3 @@ func _on_timer_timeout() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	$EnemyShape/AnimatedSprite2D.play("blow up")
 	$Timer.start()
-	print("haha ):")

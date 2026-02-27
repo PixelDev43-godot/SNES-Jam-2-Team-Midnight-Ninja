@@ -1,10 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://di2u72kq2j8wg"]
-
-[ext_resource type="Script" uid="uid://62kobb7sogng" path="res://global_manager.gd" id="1_kslbe"]
-[ext_resource type="AudioStream" uid="uid://dgr1fyud6bhtx" path="res://assets/music/lunacy theme.wav" id="2_7i8p5"]
+[gd_scene format=3 uid="uid://di2u72kq2j8wg"]
 
 [node name="GlobalManager" type="Node2D"]
-script = ExtResource("1_kslbe")
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_7i8p5")
