@@ -31,9 +31,9 @@ func _on_area_one_area_entered(area: Area2D) -> void:
 				area.get_parent().queue_free()
 				get_parent().enemy_down()
 			else:
-				get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
+				get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
 		elif area.is_in_group("hurt"):
-			get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
+			get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
 		elif area.is_in_group("winner"):
 			get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
 

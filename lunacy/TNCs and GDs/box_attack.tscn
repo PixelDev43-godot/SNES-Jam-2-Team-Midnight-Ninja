@@ -408,6 +408,8 @@ mesh = SubResource("QuadMesh_04unm")
 [node name="AreaTwo" type="Area2D" parent="."]
 light_mask = 3
 visibility_layer = 3
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_dd35l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTwo"]
@@ -416,10 +418,8 @@ shape = SubResource("RectangleShape2D_04unm")
 [node name="Animation2" type="AnimatedSprite2D" parent="."]
 z_index = 13
 sprite_frames = SubResource("SpriteFrames_0vlus")
-animation = &"fall"
+animation = &"defend"
 autoplay = "defend"
-frame = 9
-frame_progress = 0.340944
 
 [node name="wall collision 2" type="Area2D" parent="."]
 collision_layer = 8
