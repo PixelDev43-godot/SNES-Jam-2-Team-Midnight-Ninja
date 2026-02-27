@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://orbh6hgv666n" path="res://TNCs and GDs/spin_boxes.tscn" id="5_wgwab"]
 [ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="13_yosqs"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3aafb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5c20q"]
 texture = ExtResource("1_hx4dt")
 0:0/0 = 0
 1:0/0 = 0
@@ -71,7 +71,7 @@ texture = ExtResource("1_hx4dt")
 8:9/0 = 0
 9:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_am8bc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lo4qa"]
 texture = ExtResource("2_tio76")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2, 8, 2.125, 8, 8, 6, 8, -8, 8)
@@ -218,7 +218,7 @@ texture = ExtResource("2_tio76")
 7:8/size_in_atlas = Vector2i(2, 2)
 7:8/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vru20"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibdyc"]
 texture = ExtResource("3_62cav")
 0:1/0 = 0
 0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 2, 8, 2.25, 8, 8, 6.125, 8, -8, 8)
@@ -267,7 +267,7 @@ texture = ExtResource("3_62cav")
 1:7/0 = 0
 1:7/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85aof"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1e50"]
 texture = ExtResource("4_3f5i6")
 0:1/0 = 0
 1:1/0 = 0
@@ -315,10 +315,10 @@ physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 2
 physics_layer_2/collision_layer = 4
 physics_layer_2/collision_mask = 4
-sources/0 = SubResource("TileSetAtlasSource_3aafb")
-sources/2 = SubResource("TileSetAtlasSource_am8bc")
-sources/3 = SubResource("TileSetAtlasSource_vru20")
-sources/4 = SubResource("TileSetAtlasSource_85aof")
+sources/0 = SubResource("TileSetAtlasSource_5c20q")
+sources/2 = SubResource("TileSetAtlasSource_lo4qa")
+sources/3 = SubResource("TileSetAtlasSource_ibdyc")
+sources/4 = SubResource("TileSetAtlasSource_t1e50")
 
 [node name="world" type="Node2D"]
 modulate = Color(0.541234, 0.530383, 0.528936, 1)

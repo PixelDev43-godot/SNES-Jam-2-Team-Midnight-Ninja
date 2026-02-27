@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://dj6nxfearsosl"]
+[gd_scene load_steps=15 format=4 uid="uid://dj6nxfearsosl"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_ei8of"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_wv4vm"]
 [ext_resource type="Texture2D" uid="uid://v6d7xa0jtqwe" path="res://art/tilesets/falthrough tiles.png" id="3_1iosf"]
 [ext_resource type="Texture2D" uid="uid://blfb6bt6ytbws" path="res://art/tilesets/sludge tileset (2).png" id="4_ay6qq"]
-[ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="5_1ia2s"]
 [ext_resource type="PackedScene" uid="uid://orbh6hgv666n" path="res://TNCs and GDs/spin_boxes.tscn" id="6_be1ak"]
 [ext_resource type="AudioStream" uid="uid://dvnclcuxdr6wq" path="res://music/lunacy themes/lunacy theme flute.wav" id="7_u3j24"]
 [ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="8_jedyy"]
@@ -357,9 +356,6 @@ modulate = Color(0.325441, 0.325441, 0.325441, 1)
 z_index = 1
 use_parent_material = true
 tile_set = SubResource("TileSet_dop8r")
-
-[node name="Enemy" parent="." instance=ExtResource("5_1ia2s")]
-position = Vector2(20, -128)
 
 [node name="PlayerMain" parent="." instance=ExtResource("6_be1ak")]
 position = Vector2(53, 84)
