@@ -16,6 +16,9 @@ var can_rotate = true
 @onready var box_a = $BoxAttack
 @onready var reverse = false
 
+func _ready():
+	reverse = !reverse
+
 func _physics_process(delta):
 	if can_rotate:
 	#line placement
@@ -27,7 +30,7 @@ func _physics_process(delta):
 		$line.points = [p1, p2]
 	
 	
-	
+
 	
 	
 	

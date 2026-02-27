@@ -15,6 +15,10 @@ run/main_scene="res://TNCs and GDs/level_1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://art/icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [debug]
 
 shapes/collision/shape_color=Color(0.999129, 0, 0.122745, 0.42)

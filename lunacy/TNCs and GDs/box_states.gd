@@ -41,7 +41,8 @@ func _on_area_one_area_entered(area: Area2D) -> void:
 				area.get_parent().queue_free()
 				get_parent().enemy_down()
 			else:
-				get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
+				$"animation timer".start()
+				animation.play("lose")
 		elif area.is_in_group("hurt"):
 			get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
 		elif area.is_in_group("winner"):
@@ -58,7 +59,8 @@ func _on_area_two_area_entered(area: Area2D) -> void:
 				get_parent().enemy_down()
 				print("why wont this work?")
 			else:
-				get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
+				$"animation timer".start()
+				animation2.play("lose")
 		elif area.is_in_group("hurt"):
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
 		elif area.is_in_group("winner"):

@@ -427,8 +427,8 @@ scale = Vector2(16, 16)
 mesh = SubResource("QuadMesh_04unm")
 
 [node name="AreaOne" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOne"]
 position = Vector2(0, 0.5)
@@ -478,7 +478,11 @@ collision_mask = 224
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_nf4p8")
 
+[node name="death_timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="AreaOne" to="." method="_on_area_one_area_entered"]
 [connection signal="body_shape_entered" from="wall collision" to="." method="_on_wall_collision_body_shape_entered"]
 [connection signal="body_shape_exited" from="pit_collision" to="." method="_on_pit_collision_body_shape_exited"]
 [connection signal="timeout" from="animation timer" to="." method="_on_animation_timer_timeout"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xwwc4m12ykvb"]
+[gd_scene load_steps=4 format=3 uid="uid://xwwc4m12ykvb"]
+
+[ext_resource type="Script" path="res://TNCs and GDs/lose_screen.gd" id="1_55eei"]
+[ext_resource type="FontFile" uid="uid://3yrudcf4pwyh" path="res://art/5x5_pixel.ttf" id="2_dfefb"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_1n1m7"]
 
@@ -9,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_55eei")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -20,13 +24,14 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.623529, 0.12549, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.909804, 0.152941, 0.152941, 1)
 theme_override_colors/font_outline_color = Color(0.192157, 0, 0, 1)
-theme_override_font_sizes/font_size = 64
-text = "You Lose!"
+theme_override_fonts/font = ExtResource("2_dfefb")
+theme_override_font_sizes/font_size = 65
+text = "You  failed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.0588235, 0.0784314, 0.533333, 1)
+modulate = Color(0.150415, 2.40654e-07, 0.00955167, 1)
 z_index = -1
 position = Vector2(582.25, 326.25)
 scale = Vector2(1161.5, 653.5)
@@ -38,12 +43,17 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_left = 14.0
+offset_top = -409.0
+offset_right = -16.0
+offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.623529, 0.12549, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.909804, 0.152941, 0.152941, 1)
 theme_override_colors/font_outline_color = Color(0.192157, 0, 0, 1)
-text = "Press Enter to Restart Level"
+theme_override_fonts/font = ExtResource("2_dfefb")
+theme_override_font_sizes/font_size = 20
+text = "Press any button"
 horizontal_alignment = 1
 vertical_alignment = 1

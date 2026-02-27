@@ -444,7 +444,7 @@ position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_6ebgs")
 
 [node name="animation timer" type="Timer" parent="."]
-wait_time = 1.212
+wait_time = 1.057
 one_shot = true
 
 [node name="slime collision2" type="Area2D" parent="."]
