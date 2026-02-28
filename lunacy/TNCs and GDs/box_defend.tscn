@@ -466,7 +466,7 @@ collision_mask = 256
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_6ebgs")
 
-[node name="animation timer" type="Timer" parent="."]
+[node name="animation_timer" type="Timer" parent="."]
 wait_time = 1.39
 one_shot = true
 
@@ -483,6 +483,7 @@ one_shot = true
 
 [connection signal="area_entered" from="AreaOne" to="." method="_on_area_one_area_entered"]
 [connection signal="body_shape_entered" from="wall collision" to="." method="_on_wall_collision_body_shape_entered"]
+[connection signal="body_shape_entered" from="pit_collision" to="." method="_on_pit_collision_body_shape_entered"]
 [connection signal="body_shape_exited" from="pit_collision" to="." method="_on_pit_collision_body_shape_exited"]
-[connection signal="timeout" from="animation timer" to="." method="_on_animation_timer_timeout"]
+[connection signal="timeout" from="animation_timer" to="." method="_on_animation_timer_timeout"]
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

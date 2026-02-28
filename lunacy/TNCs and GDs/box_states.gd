@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-
-
+var overlapping_tiles2 = 0
+var overlapping_tiles = 0
 var one_attacking = false
 var two_attacking = true
 var rotatations_s = 0.5
@@ -12,20 +12,24 @@ var can_die = true
 @onready var animation: AnimatedSprite2D = $animation
 @onready var animation2: AnimatedSprite2D = $Animation2
 
-
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("p-swap") and pit2:
 		if can_die and animation != null:
 			animation.play("fall")
-			$"animation timer".start()
+			$animation_timer.start()
 			can_die = false
 	
 	if Input.is_action_just_pressed("p-swap") and pit:
 		if can_die and animation != null:
 			animation.play("fall")
 			$"animation timer".start()
+		if can_die:
+			animation2.play("fall")
+			$animation_timer_2.start()
 			can_die = false
 	
 	if Input.is_action_just_pressed("p-swap"):
@@ -49,7 +53,7 @@ func _on_area_one_area_entered(area: Area2D) -> void:
 					area.get_parent().queue_free()
 				get_parent().enemy_down()
 			else:
-				$"animation timer".start()
+				$"animation timer_2".start()
 				animation.play("lose")
 		elif area.is_in_group("hurt"):
 			get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
@@ -69,7 +73,7 @@ func _on_area_two_area_entered(area: Area2D) -> void:
 				get_parent().enemy_down()
 				print("why wont this work?")
 			else:
-				$"animation timer".start()
+				$animation_timer.start()
 				animation2.play("lose")
 		elif area.is_in_group("hurt"):
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
@@ -109,9 +113,6 @@ func _on_animation_timer_timeout() -> void:
 	print("should work")
 	get_tree().call_deferred("change_scene_to_file", "res://TNCs and GDs/lose_screen.tscn")
 
-func _on_pit_collision_2_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	pit = false
-		
 
 	
 func _on_wall_collision_2_area_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
@@ -121,8 +122,8 @@ func _on_wall_collision_2_area_shape_entered(body_rid: RID, body: Node2D, body_s
 	
 
 
-func _on_pit_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if $pit_collision_2.get_overlapping_bodies().size() > 0:
+
+	if $pit_collision_2.get_overlappin_bodies().size() > 0:
 		pit2 = true
 		print(pit2)
 	else:
@@ -135,11 +136,26 @@ func _on_wall_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_s
 	print("hehe")
 	$"animation timer".start()
 
+func _on_pit_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	overlapping_tiles += 1
+
 
 func _on_pit_collision_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if $pit_collision.get_overlapping_bodies().size() > 0:
-		pit = true
-		print(pit)
+	overlapping_tiles -= 1
+	if overlapping_tiles <= 0:
+		print("fully did it 2")
+		pit2 = false
 	else:
+		pit2 = true
+
+
+func _on_pit_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	overlapping_tiles2 += 1
+
+func _on_pit_collision_2_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	overlapping_tiles2 -= 1
+	if overlapping_tiles2 <= 0:
+		print("Fully exitted all tiles")
 		pit = false
-		print(pit)
+	else:
+		pit = true
