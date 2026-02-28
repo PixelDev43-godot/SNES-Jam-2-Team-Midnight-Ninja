@@ -44,7 +44,9 @@ func _physics_process(delta: float) -> void:
 func _on_area_one_area_entered(area: Area2D) -> void:
 		if area.is_in_group("enemy_group"):
 			if one_attacking:
-				area.get_parent().queue_free()
+				await get_tree().create_timer(1.0).timeout
+				if is_instance_valid(area):
+					area.get_parent().queue_free()
 				get_parent().enemy_down()
 			else:
 				$"animation timer".start()
@@ -61,7 +63,9 @@ func _on_area_two_area_entered(area: Area2D) -> void:
 		if area.is_in_group("enemy_group"):
 			print("why wont this work?")
 			if two_attacking:
-				area.get_parent().queue_free()
+				await get_tree().create_timer(1.0).timeout
+				if is_instance_valid(area):
+					area.get_parent().queue_free()
 				get_parent().enemy_down()
 				print("why wont this work?")
 			else:

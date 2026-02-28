@@ -65,6 +65,8 @@ func _physics_process(delta):
 			if radius_lenghth >= 0:
 				target_rotation_speed -= 1
 				radius_lenghth -= 0.5
+		if Input.is_action_just_pressed("quit"):
+			get_tree().quit()
 func get_rotated_pos(pivot: Vector2, radius: float, theta: float) -> Vector2:
 	var x = pivot.x + (radius * cos(theta))
 	var y = pivot.y + (radius * sin(theta))

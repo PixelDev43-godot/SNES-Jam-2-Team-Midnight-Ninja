@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var timer: Timer = $EnemyShape/Timer
 
-var speed = 50.0
+var speed = 20.0
 func _physics_process(delta: float) -> void:
 	var target_pos: Vector2
 	var players = get_tree().get_nodes_in_group("player_group")
@@ -29,9 +29,19 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	$EnemyShape/AnimatedSprite2D.play("blow up")
+	speed = 1
 	$Timer.start()
 
 
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	$EnemyShape/AnimatedSprite2D.play("blow up")
+	speed = 1
+	timer.start()
+
+
+
+
+func _on_player_area_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	$EnemyShape/AnimatedSprite2D.play("blow up")
+	speed = 1
 	timer.start()

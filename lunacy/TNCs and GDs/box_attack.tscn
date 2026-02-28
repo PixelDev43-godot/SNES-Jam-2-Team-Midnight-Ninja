@@ -1,7 +1,7 @@
 [gd_scene load_steps=63 format=3 uid="uid://cnowgv6cbfk7l"]
 
-[ext_resource type="Script" path="res://TNCs and GDs/box_states.gd" id="1_pxxok"]
-[ext_resource type="Script" path="res://TNCs and GDs/area_2d.gd" id="2_dd35l"]
+[ext_resource type="Script" uid="uid://umnty4dtl5b6" path="res://TNCs and GDs/box_states.gd" id="1_pxxok"]
+[ext_resource type="Script" uid="uid://c21rugu5y6v7q" path="res://TNCs and GDs/area_2d.gd" id="2_dd35l"]
 [ext_resource type="Texture2D" uid="uid://nq6uifo38d7g" path="res://art/player one lose.png" id="3_elpsq"]
 [ext_resource type="Texture2D" uid="uid://dd7gpajrxqwnu" path="res://art/player one.png" id="4_5v84g"]
 [ext_resource type="Texture2D" uid="uid://du0kvikhso26x" path="res://art/player one fall.png" id="5_wiokh"]

@@ -1,15 +1,16 @@
-[gd_scene load_steps=17 format=4 uid="uid://cjxcbueg0mvki"]
+[gd_scene load_steps=18 format=4 uid="uid://cjxcbueg0mvki"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_ous0w"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_8qhgd"]
 [ext_resource type="Texture2D" uid="uid://v6d7xa0jtqwe" path="res://art/tilesets/falthrough tiles.png" id="3_uvfit"]
 [ext_resource type="Texture2D" uid="uid://blfb6bt6ytbws" path="res://art/tilesets/sludge tileset (2).png" id="4_qbdr2"]
 [ext_resource type="PackedScene" uid="uid://pruveact63ox" path="res://TNCs and GDs/door.tscn" id="5_jse4l"]
-[ext_resource type="Script" path="res://TNCs and GDs/level_2_music.gd" id="5_n371e"]
+[ext_resource type="Script" uid="uid://cgju3tgs4x768" path="res://TNCs and GDs/level_2_music.gd" id="5_n371e"]
 [ext_resource type="AudioStream" uid="uid://fy3ppe3j2w8b" path="res://music/lunacy themes/lunacy theme sped up with woodwind.wav" id="6_d7qkb"]
 [ext_resource type="AudioStream" uid="uid://bsuqeycpo5k06" path="res://music/infestation.wav" id="7_sjgy5"]
 [ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="8_84ggt"]
 [ext_resource type="PackedScene" uid="uid://orbh6hgv666n" path="res://TNCs and GDs/spin_boxes.tscn" id="9_ca58q"]
+[ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="11_mi7y3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5waly"]
 texture = ExtResource("1_ous0w")
@@ -377,5 +378,82 @@ autoplay = true
 
 [node name="PlayerMain" parent="." instance=ExtResource("9_ca58q")]
 position = Vector2(53, 84)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(-106, 35)
+
+[node name="enemy2" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(237, -60)
+
+[node name="enemy3" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(262, 55)
+
+[node name="enemy4" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(390, -50)
+
+[node name="enemy5" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(394, 106)
+
+[node name="enemy6" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(309, 191)
+
+[node name="enemy7" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(465, 16)
+
+[node name="enemy8" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(486, -58)
+
+[node name="enemy9" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(539, 96)
+
+[node name="enemy10" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(589, -1)
+
+[node name="enemy11" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(658, 107)
+
+[node name="enemy12" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(683, -44)
+
+[node name="enemy13" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(747, 48)
+
+[node name="enemy14" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(802, -51)
+
+[node name="enemy15" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(843, 84)
+
+[node name="enemy16" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(965, -52)
+
+[node name="enemy17" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(986, 35)
+
+[node name="enemy18" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(1101, 111)
+
+[node name="enemy19" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(1000, 141)
+
+[node name="enemy20" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(1085, 10)
+
+[node name="enemy21" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(883, -1)
+
+[node name="enemy22" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(913, 111)
+
+[node name="enemy23" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(1051, 68)
+
+[node name="enemy24" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(1134, 49)
+
+[node name="enemy25" parent="Enemies" instance=ExtResource("11_mi7y3")]
+position = Vector2(1013, -18)
 
 [connection signal="finished" from="playlist setup/level 2 music/infestation" to="playlist setup/level 2 music" method="_on_infestation_finished"]

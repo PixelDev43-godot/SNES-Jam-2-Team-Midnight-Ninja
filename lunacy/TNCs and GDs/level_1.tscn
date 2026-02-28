@@ -365,6 +365,27 @@ enabled = false
 [node name="Enemy" parent="." instance=ExtResource("13_yosqs")]
 position = Vector2(22, -302)
 
+[node name="Enemy2" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(109, -543)
+
+[node name="Enemy6" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(-97, -478)
+
+[node name="Enemy3" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(334, 113)
+
+[node name="Enemy4" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(337, -185)
+
+[node name="Enemy5" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(357, -456)
+
+[node name="Enemy7" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(24, -577)
+
+[node name="Enemy8" parent="." instance=ExtResource("13_yosqs")]
+position = Vector2(361, -38)
+
 [node name="PlayerMain" parent="." instance=ExtResource("5_wgwab")]
 position = Vector2(53, 84)
 

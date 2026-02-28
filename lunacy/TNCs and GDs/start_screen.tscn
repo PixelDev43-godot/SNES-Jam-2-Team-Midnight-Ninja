@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfexik07rcb11"]
+[gd_scene load_steps=4 format=3 uid="uid://bfexik07rcb11"]
 
-[ext_resource type="Script" uid="uid://bipshkvh0mmin" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="FontFile" uid="uid://3yrudcf4pwyh" path="res://art/5x5_pixel.ttf" id="1_m33av"]
+[ext_resource type="Script" uid="uid://c0x12cgji320a" path="res://TNCs and GDs/start_screen.gd" id="1_n3ts6"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_tx5wa"]
 
@@ -11,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tx5wa")
+script = ExtResource("1_n3ts6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -23,10 +24,12 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.623529, 0.12549, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.909804, 0.152941, 0.152941, 1)
 theme_override_colors/font_outline_color = Color(0.192157, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("1_m33av")
+theme_override_font_sizes/font_size = 128
 text = "
-Escape of The
-Two Prisoners"
+The Looping
+
+Lunatics"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
@@ -35,16 +38,18 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -48.0
+offset_top = -168.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 64
 text = "Start Game"
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.0588235, 0.0784314, 0.666667, 1)
 z_index = -10
-position = Vector2(174.75, 114.75)
-scale = Vector2(350.5, 230.5)
+position = Vector2(587.75, 333.75)
+scale = Vector2(1176.5, 668.5)
 mesh = SubResource("QuadMesh_tx5wa")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

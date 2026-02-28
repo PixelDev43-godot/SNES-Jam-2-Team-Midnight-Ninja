@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1uatslgw0c0k"]
+[gd_scene load_steps=4 format=3 uid="uid://c1uatslgw0c0k"]
 
-[ext_resource type="Script" path="res://TNCs and GDs/control_screen.gd" id="1_l8rke"]
+[ext_resource type="Script" uid="uid://bqw4stqjaslc4" path="res://TNCs and GDs/control_screen.gd" id="1_l8rke"]
+[ext_resource type="FontFile" uid="uid://3yrudcf4pwyh" path="res://art/5x5_pixel.ttf" id="2_l8d2i"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ixwfw"]
 
@@ -23,20 +24,24 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.623529, 0.12549, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.909804, 0.152941, 0.152941, 1)
 theme_override_colors/font_outline_color = Color(0.192157, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("2_l8d2i")
+theme_override_font_sizes/font_size = 64
 text = "
 Controls
 
 Space to Change Pivot
-X to Change Direction
+Up Arrow to 
+lengthen box distance
+Down arrow to 
+shorten box distance
 ESC to quit"
 horizontal_alignment = 1
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0.0588235, 0.0784314, 0.533333, 1)
 z_index = -1
-position = Vector2(171.75, 122.75)
-scale = Vector2(-342.5, 246.5)
+position = Vector2(639.148, 355.488)
+scale = Vector2(-1277.3, 711.975)
 mesh = SubResource("QuadMesh_ixwfw")
 
 [node name="Button" type="Button" parent="."]
@@ -45,9 +50,11 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -48.0
+offset_top = -175.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 64
 text = "Continue"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

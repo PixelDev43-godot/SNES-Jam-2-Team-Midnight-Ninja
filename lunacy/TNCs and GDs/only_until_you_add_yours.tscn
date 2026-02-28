@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://drbku36yechos"]
 
-[ext_resource type="Script" path="res://TNCs and GDs/only_until_you_add_yours.gd" id="1_5b0j7"]
+[ext_resource type="Script" uid="uid://b7vimcfjebxq1" path="res://TNCs and GDs/only_until_you_add_yours.gd" id="1_5b0j7"]
 [ext_resource type="Texture2D" uid="uid://c3y70i2uldb6g" path="res://art/New Piskel (3).png" id="2_hl20i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eton3"]
