@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://rp2cb71j4j44"]
+[gd_scene load_steps=18 format=4 uid="uid://rp2cb71j4j44"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_hx4dt"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_tio76"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="8_ftnki"]
 [ext_resource type="AudioStream" uid="uid://bdwgxk2i55otn" path="res://music/lunacy themes/lunacy theme.wav" id="9_w2em5"]
 [ext_resource type="PackedScene" uid="uid://pruveact63ox" path="res://TNCs and GDs/door.tscn" id="10_rw3dv"]
+[ext_resource type="PackedScene" uid="uid://dxrgy245uoc6d" path="res://TNCs and GDs/pit_collider.tscn" id="11_16xw1"]
 [ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="13_yosqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5c20q"]
@@ -374,3 +375,6 @@ autoplay = true
 
 [node name="door" parent="." instance=ExtResource("10_rw3dv")]
 position = Vector2(24, -608)
+
+[node name="PitCollider" parent="." instance=ExtResource("11_16xw1")]
+position = Vector2(104, 35)

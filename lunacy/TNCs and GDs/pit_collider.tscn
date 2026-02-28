@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxrgy245uoc6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryfmv"]
-size = Vector2(480, 48)
+size = Vector2(31.25, 16)
 
 [node name="PitCollider" type="Node2D" groups=["pit"]]
 
