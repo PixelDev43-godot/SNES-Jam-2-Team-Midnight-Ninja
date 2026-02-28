@@ -417,7 +417,6 @@ position = Vector2(0, -60)
 collision_layer = 15
 collision_mask = 15
 script = ExtResource("1_0nvem")
-attack_visuals = false
 
 [node name="BoxVisuals" type="MeshInstance2D" parent="."]
 visible = false
