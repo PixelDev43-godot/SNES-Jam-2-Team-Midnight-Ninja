@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://pruveact63ox"]
 
-[ext_resource type="Script" path="res://TNCs and GDs/door.gd" id="1_ip86e"]
+[ext_resource type="Script" uid="uid://be72w4oc2jc1s" path="res://TNCs and GDs/door.gd" id="1_ip86e"]
 [ext_resource type="Texture2D" uid="uid://jcq0pacyx4hs" path="res://art/door.png" id="2_atlbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_670xr"]

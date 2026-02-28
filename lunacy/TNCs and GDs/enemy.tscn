@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://dqkfvifkfig8i"]
 
-[ext_resource type="Script" path="res://TNCs and GDs/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://jyjot4al648d" path="res://TNCs and GDs/enemy.gd" id="1_7p1mj"]
 [ext_resource type="Texture2D" uid="uid://d4kknfcl0xwvs" path="res://art/drone spritesheet.png" id="2_cead7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
@@ -235,4 +235,5 @@ enable_node_path = NodePath("../..")
 [node name="Timer" type="Timer" parent="EnemyShape"]
 one_shot = true
 
+[connection signal="area_shape_entered" from="EnemyShape/player area" to="." method="_on_player_area_area_shape_entered"]
 [connection signal="area_shape_entered" from="EnemyShape/Area2D" to="." method="_on_area_2d_area_shape_entered"]

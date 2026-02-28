@@ -1,11 +1,119 @@
-[gd_scene load_steps=7 format=3 uid="uid://orbh6hgv666n"]
+[gd_scene load_steps=24 format=3 uid="uid://orbh6hgv666n"]
 
-[ext_resource type="Script" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
+[ext_resource type="Script" uid="uid://csd8nmla3tdk7" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
 [ext_resource type="PackedScene" uid="uid://mqtiofmvlv51" path="res://TNCs and GDs/box_defend.tscn" id="2_akub1"]
 [ext_resource type="PackedScene" uid="uid://cnowgv6cbfk7l" path="res://TNCs and GDs/box_attack.tscn" id="3_uhcwk"]
-[ext_resource type="Script" path="res://TNCs and GDs/camera.gd" id="4_0xec5"]
+[ext_resource type="Script" uid="uid://cpgxgco4y11ws" path="res://TNCs and GDs/camera.gd" id="4_0xec5"]
 [ext_resource type="FontFile" uid="uid://3yrudcf4pwyh" path="res://art/5x5_pixel.ttf" id="5_20s5l"]
-[ext_resource type="Script" path="res://TNCs and GDs/label.gd" id="6_8617p"]
+[ext_resource type="Texture2D" uid="uid://4vncve0d6se1" path="res://art/tilesets/speaker.png" id="5_gyfyh"]
+[ext_resource type="Script" uid="uid://j0ohosv431ld" path="res://TNCs and GDs/label.gd" id="6_8617p"]
+[ext_resource type="Script" uid="uid://bevaqdrex8spf" path="res://TNCs and GDs/animated_sprite_2d.gd" id="6_ua8tp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua8tp"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bfnc"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajois"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yj8n"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svwg5"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iars6"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy8y8"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(400, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc1c8"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(600, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_512gm"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(0, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3wys"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(200, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruo5v"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(400, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kghej"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(600, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2plq"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(0, 600, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ukdy"]
+atlas = ExtResource("5_gyfyh")
+region = Rect2(200, 600, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2jxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua8tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bfnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajois")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yj8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svwg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iars6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy8y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc1c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_512gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3wys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruo5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kghej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2plq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ukdy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="PlayerMain" type="Node2D" groups=["player_group"]]
 z_index = 13
@@ -23,34 +131,48 @@ script = ExtResource("1_xeg8f")
 animation = &"fall"
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 script = ExtResource("4_0xec5")
 
-[node name="Control" type="Control" parent="Camera"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera"]
+position = Vector2(0, 63)
+sprite_frames = SubResource("SpriteFrames_b2jxe")
+script = ExtResource("6_ua8tp")
+
+[node name="Control" type="Control" parent="Camera/AnimatedSprite2D"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -42.0
+offset_top = -21.0
+offset_right = 83.0
+offset_bottom = 12.0
 
-[node name="Label" type="Label" parent="Camera/Control"]
+[node name="Label" type="Label" parent="Camera/AnimatedSprite2D/Control"]
 layout_mode = 0
-offset_right = 129.0
-offset_bottom = 69.0
+offset_top = 33.0
+offset_right = 126.0
+offset_bottom = 109.0
 theme_override_fonts/font = ExtResource("5_20s5l")
-theme_override_font_sizes/font_size = 5
+theme_override_font_sizes/font_size = 8
 text = "Alert,  Alert!
-The  prisoners  from  cell  43  have  escaped!
+The  prisoners  from  cell  
+43  have  escaped!
 They  appear  loopy  and  seem 
 to  be  spinning  around  in  an
 endless  loop.
 EXECUTE  LOCKDOWN
 PROTOCOL 
 NO  ONE  ESCAPES  PRISON  51!"
+autowrap_mode = 3
 script = ExtResource("6_8617p")
 
-[node name="Timer" type="Timer" parent="Camera/Control/Label"]
+[node name="Timer" type="Timer" parent="Camera/AnimatedSprite2D"]
 wait_time = 22.0
+one_shot = true
+autostart = true
 
 [node name="line" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, -60)
@@ -59,6 +181,7 @@ default_color = Color(0.255659, 0.255659, 0.255659, 1)
 
 [connection signal="body_shape_entered" from="BoxDefend/wall collision" to="." method="_on_wall_collision_body_shape_entered"]
 [connection signal="body_shape_entered" from="BoxAttack/wall collision 2" to="." method="_on_wall_collision_2_body_shape_entered"]
+[connection signal="timeout" from="Camera/AnimatedSprite2D/Timer" to="Camera/AnimatedSprite2D" method="_on_timer_timeout"]
 
 [editable path="BoxDefend"]
 [editable path="BoxAttack"]
