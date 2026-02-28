@@ -17,13 +17,13 @@ var can_die = true
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("p-swap") and pit2:
-		if can_die:
+		if can_die and animation != null:
 			animation.play("fall")
 			$"animation timer".start()
 			can_die = false
 	
 	if Input.is_action_just_pressed("p-swap") and pit:
-		if can_die:
+		if can_die and animation != null:
 			animation.play("fall")
 			$"animation timer".start()
 			can_die = false

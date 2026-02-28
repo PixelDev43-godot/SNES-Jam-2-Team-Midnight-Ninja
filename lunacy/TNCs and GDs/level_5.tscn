@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://da0orncyqrbv"]
+[gd_scene load_steps=17 format=4 uid="uid://da0orncyqrbv"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_srvq3"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_aomxb"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bdwgxk2i55otn" path="res://music/lunacy themes/lunacy theme.wav" id="7_tgqdl"]
 [ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="8_ktsl0"]
 [ext_resource type="AudioStream" uid="uid://fy3ppe3j2w8b" path="res://music/lunacy themes/lunacy theme sped up with woodwind.wav" id="9_brwv2"]
+[ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="10_8t1wf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvi2l"]
 texture = ExtResource("1_srvq3")
@@ -365,3 +366,41 @@ position = Vector2(53, 84)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamPlaylist_7l3sc")
 autoplay = true
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(119, -138)
+
+[node name="enemy2" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(-87, -179)
+
+[node name="enemy3" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(134, -333)
+
+[node name="enemy4" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(-105, -464)
+
+[node name="enemy5" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(138, -542)
+
+[node name="enemy6" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(-82, -618)
+
+[node name="enemy7" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(99, -758)
+
+[node name="enemy8" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(24, -765)
+
+[node name="enemy9" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(-48, -768)
+
+[node name="enemy10" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(-60, -712)
+
+[node name="enemy11" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(96, -709)
+
+[node name="enemy12" parent="Enemies" instance=ExtResource("10_8t1wf")]
+position = Vector2(4, -399)
