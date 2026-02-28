@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dj6nxfearsosl"]
+[gd_scene load_steps=17 format=4 uid="uid://dj6nxfearsosl"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_ei8of"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_wv4vm"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="8_jedyy"]
 [ext_resource type="AudioStream" uid="uid://bdwgxk2i55otn" path="res://music/lunacy themes/lunacy theme.wav" id="9_kvbtq"]
 [ext_resource type="PackedScene" uid="uid://pruveact63ox" path="res://TNCs and GDs/door.tscn" id="9_yjynk"]
+[ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="10_6dx4q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qoosy"]
 texture = ExtResource("1_ei8of")
@@ -367,3 +368,35 @@ autoplay = true
 
 [node name="door" parent="." instance=ExtResource("9_yjynk")]
 position = Vector2(-30, -582)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="enemy" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(-47, -140)
+
+[node name="enemy2" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(111, -143)
+
+[node name="enemy3" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(232, -262)
+
+[node name="enemy4" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(-5, -334)
+
+[node name="enemy5" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(-155, -256)
+
+[node name="enemy6" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(242, -62)
+
+[node name="enemy7" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(400, -46)
+
+[node name="enemy8" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(431, 152)
+
+[node name="enemy9" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(365, 163)
+
+[node name="enemy10" parent="Enemies" instance=ExtResource("10_6dx4q")]
+position = Vector2(-12, -428)

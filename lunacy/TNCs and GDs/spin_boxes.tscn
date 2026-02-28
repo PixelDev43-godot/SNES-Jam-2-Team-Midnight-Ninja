@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://orbh6hgv666n"]
 
-[ext_resource type="Script" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
+[ext_resource type="Script" uid="uid://csd8nmla3tdk7" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
 [ext_resource type="PackedScene" uid="uid://mqtiofmvlv51" path="res://TNCs and GDs/box_defend.tscn" id="2_akub1"]
 [ext_resource type="PackedScene" uid="uid://cnowgv6cbfk7l" path="res://TNCs and GDs/box_attack.tscn" id="3_uhcwk"]
-[ext_resource type="Script" path="res://TNCs and GDs/camera.gd" id="4_0xec5"]
+[ext_resource type="Script" uid="uid://cpgxgco4y11ws" path="res://TNCs and GDs/camera.gd" id="4_0xec5"]
 [ext_resource type="FontFile" uid="uid://3yrudcf4pwyh" path="res://art/5x5_pixel.ttf" id="5_20s5l"]
 [ext_resource type="Texture2D" uid="uid://4vncve0d6se1" path="res://art/tilesets/speaker.png" id="5_gyfyh"]
-[ext_resource type="Script" path="res://TNCs and GDs/label.gd" id="6_8617p"]
-[ext_resource type="Script" path="res://TNCs and GDs/animated_sprite_2d.gd" id="6_ua8tp"]
+[ext_resource type="Script" uid="uid://j0ohosv431ld" path="res://TNCs and GDs/label.gd" id="6_8617p"]
+[ext_resource type="Script" uid="uid://bevaqdrex8spf" path="res://TNCs and GDs/animated_sprite_2d.gd" id="6_ua8tp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ua8tp"]
 atlas = ExtResource("5_gyfyh")
@@ -123,12 +123,24 @@ script = ExtResource("1_xeg8f")
 
 [node name="AreaOne" parent="BoxDefend" index="1" groups=["player_group"]]
 
+[node name="animation timer" parent="BoxDefend" index="6"]
+wait_time = 1.39
+one_shot = true
+
 [node name="BoxAttack" parent="." instance=ExtResource("3_uhcwk")]
 
 [node name="AreaTwo" parent="BoxAttack" index="1" groups=["player_group"]]
 
-[node name="Animation2" parent="BoxAttack" index="2"]
-animation = &"fall"
+[node name="pit_collision_2" parent="BoxAttack" index="4"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="BoxAttack/pit_collision_2" index="0"]
+position = Vector2(0, 7.5)
+
+[node name="animation timer" parent="BoxAttack" index="5"]
+wait_time = 1.057
+one_shot = true
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -180,7 +192,9 @@ width = 2.0
 default_color = Color(0.255659, 0.255659, 0.255659, 1)
 
 [connection signal="body_shape_entered" from="BoxDefend/wall collision" to="." method="_on_wall_collision_body_shape_entered"]
+[connection signal="timeout" from="BoxDefend/animation timer" to="BoxDefend" method="_on_animation_timer_timeout"]
 [connection signal="body_shape_entered" from="BoxAttack/wall collision 2" to="." method="_on_wall_collision_2_body_shape_entered"]
+[connection signal="timeout" from="BoxAttack/animation timer" to="BoxAttack" method="_on_animation_timer_timeout"]
 [connection signal="timeout" from="Camera/AnimatedSprite2D/Timer" to="Camera/AnimatedSprite2D" method="_on_timer_timeout"]
 
 [editable path="BoxDefend"]
