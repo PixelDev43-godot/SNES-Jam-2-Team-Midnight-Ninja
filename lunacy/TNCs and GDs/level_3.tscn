@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b5wd7np7kbap6"]
+[gd_scene load_steps=16 format=4 uid="uid://b5wd7np7kbap6"]
 
 [ext_resource type="Texture2D" uid="uid://br82xktmoimtw" path="res://art/tilesets/neo_zero_props_and_items_01.png" id="1_h35b0"]
 [ext_resource type="Texture2D" uid="uid://bwn34g86fxjqi" path="res://art/tilesets/neo_zero_tiles_and_buildings.png" id="2_2gg1k"]
@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://08ul5jiqr62o" path="res://music/lunacy themes/lunacy theme low.wav" id="6_hxqmh"]
 [ext_resource type="AudioStream" uid="uid://dvnclcuxdr6wq" path="res://music/lunacy themes/lunacy theme flute.wav" id="7_kxy5c"]
 [ext_resource type="AudioStream" uid="uid://bdwgxk2i55otn" path="res://music/lunacy themes/lunacy theme.wav" id="8_wt1sg"]
-[ext_resource type="PackedScene" uid="uid://dqkfvifkfig8i" path="res://TNCs and GDs/enemy.tscn" id="10_v13w7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qwlv"]
 texture = ExtResource("1_h35b0")
@@ -368,8 +367,3 @@ position = Vector2(53, 84)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamPlaylist_hfhr8")
 autoplay = true
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="enemy" parent="Enemies" instance=ExtResource("10_v13w7")]
-position = Vector2(-382, -67)

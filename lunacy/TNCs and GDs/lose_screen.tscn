@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://xwwc4m12ykvb"]
 
-[ext_resource type="Script" uid="uid://civsfevf3ddhn" path="res://TNCs and GDs/lose_screen.gd" id="1_55eei"]
+[ext_resource type="Script" path="res://TNCs and GDs/lose_screen.gd" id="1_55eei"]
 [ext_resource type="FontFile" uid="uid://3yrudcf4pwyh" path="res://art/5x5_pixel.ttf" id="2_dfefb"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_1n1m7"]

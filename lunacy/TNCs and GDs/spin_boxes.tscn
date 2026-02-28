@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://orbh6hgv666n"]
 
-[ext_resource type="Script" uid="uid://csd8nmla3tdk7" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
+[ext_resource type="Script" path="res://TNCs and GDs/main_boxes.gd" id="1_xeg8f"]
 [ext_resource type="PackedScene" uid="uid://mqtiofmvlv51" path="res://TNCs and GDs/box_defend.tscn" id="2_akub1"]
 [ext_resource type="PackedScene" uid="uid://cnowgv6cbfk7l" path="res://TNCs and GDs/box_attack.tscn" id="3_uhcwk"]
-[ext_resource type="Script" uid="uid://cpgxgco4y11ws" path="res://TNCs and GDs/camera.gd" id="4_0xec5"]
+[ext_resource type="Script" path="res://TNCs and GDs/camera.gd" id="4_0xec5"]
 [ext_resource type="FontFile" uid="uid://3yrudcf4pwyh" path="res://art/5x5_pixel.ttf" id="5_20s5l"]
 [ext_resource type="Texture2D" uid="uid://4vncve0d6se1" path="res://art/tilesets/speaker.png" id="5_gyfyh"]
-[ext_resource type="Script" uid="uid://j0ohosv431ld" path="res://TNCs and GDs/label.gd" id="6_8617p"]
-[ext_resource type="Script" uid="uid://bevaqdrex8spf" path="res://TNCs and GDs/animated_sprite_2d.gd" id="6_ua8tp"]
+[ext_resource type="Script" path="res://TNCs and GDs/label.gd" id="6_8617p"]
+[ext_resource type="Script" path="res://TNCs and GDs/animated_sprite_2d.gd" id="6_ua8tp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ua8tp"]
 atlas = ExtResource("5_gyfyh")

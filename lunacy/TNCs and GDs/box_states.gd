@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("p-swap") and pit:
 		if can_die:
 			animation2.play("fall")
-			$animation_timer2.start()
+			$animation_timer_2.start()
 			can_die = false
 	
 	if Input.is_action_just_pressed("p-swap"):
@@ -70,7 +70,7 @@ func _on_area_two_area_entered(area: Area2D) -> void:
 				get_parent().enemy_down()
 				print("why wont this work?")
 			else:
-				$"animation_timer".start()
+				$animation_timer.start()
 				animation2.play("lose")
 		elif area.is_in_group("hurt"):
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/lose_screen.tscn")
@@ -133,6 +133,9 @@ func _on_wall_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_s
 	print("hehe")
 	$"animation timer".start()
 
+func _on_pit_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	overlapping_tiles += 1
+
 
 func _on_pit_collision_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	overlapping_tiles -= 1
@@ -148,12 +151,8 @@ func _on_pit_collision_2_body_shape_entered(body_rid: RID, body: Node2D, body_sh
 
 func _on_pit_collision_2_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	overlapping_tiles2 -= 1
-	if overlapping_tiles <= 0:
-		print("Fully exited all tiles")
+	if overlapping_tiles2 <= 0:
+		print("Fully exitted all tiles")
 		pit = false
 	else:
 		pit = true
-
-
-func _on_pit_collision_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	overlapping_tiles += 1
